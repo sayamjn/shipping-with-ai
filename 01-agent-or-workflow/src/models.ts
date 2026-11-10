@@ -13,7 +13,7 @@ const retryDelayMs = (errorBody: string) => {
 const toGeminiContent = (turn: Turn) => {
   if (turn.role === "user") return { role: "user", parts: [{ text: turn.text }] };
   if (turn.role === "tool") return { role: "user", parts: [{ functionResponse: { name: turn.name, response: { result: turn.result } } }] };
-  const parts = [...(turn.text ? [{ text: turn.text }] : []), ...(turn.toolCalls ?? []).map((call) => ({ functionCall: call }))];
+  const parts = [...(turn.text ? [{ text: turn.text }] : []), ...(turn.toolCalls ?? []).map(({ name, args }) => ({ functionCall: { name, args } }))];
   return { role: "model", parts };
 };
 

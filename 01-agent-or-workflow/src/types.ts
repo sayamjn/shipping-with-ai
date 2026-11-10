@@ -6,14 +6,14 @@ export type Finding = { chatId: string; messageId: string; kind: "waiting_on_me"
 
 export type CheckedFinding = Finding & { verified: boolean; reason: string | null };
 
-export type ToolCall = { name: string; args: Record<string, unknown> };
+export type ToolCall = { id?: string; name: string; args: Record<string, unknown> };
 
 export type ToolDefinition = { name: string; description: string; parameters: Record<string, unknown> };
 
 export type Turn =
   | { role: "user"; text: string }
   | { role: "model"; text?: string; toolCalls?: ReadonlyArray<ToolCall> }
-  | { role: "tool"; name: string; result: unknown };
+  | { role: "tool"; name: string; callId?: string; result: unknown };
 
 export type ModelRequest = {
   system: string;

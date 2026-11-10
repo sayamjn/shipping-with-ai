@@ -1,5 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { runAgent } from "./agent.ts";
+import { groqModel } from "./groq.ts";
 import { geminiModel, scriptedModel } from "./models.ts";
 import { totals } from "./trace.ts";
 import type { Chat, RunResult } from "./types.ts";
@@ -8,8 +9,13 @@ import { runWorkflow } from "./workflow.ts";
 const TODAY = "2026-11-10";
 
 const chats: ReadonlyArray<Chat> = JSON.parse(readFileSync(new URL("../data/chats.json", import.meta.url), "utf8"));
-const apiKey = process.env.GEMINI_API_KEY;
-const model = apiKey && !process.argv.includes("--offline") ? geminiModel(apiKey) : scriptedModel(chats);
+const pickModel = () => {
+  if (process.argv.includes("--offline")) return scriptedModel(chats);
+  if (process.env.GROQ_API_KEY) return groqModel(process.env.GROQ_API_KEY);
+  if (process.env.GEMINI_API_KEY) return geminiModel(process.env.GEMINI_API_KEY);
+  return scriptedModel(chats);
+};
+const model = pickModel();
 
 const row = (result: RunResult) => {
   const sum = totals(result.trace);

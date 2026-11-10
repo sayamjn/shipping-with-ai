@@ -1,3 +1,4 @@
-results/*.json
-!results/sample-run-*.json
+**/results/*.json
+!**/results/sample-run-*.json
 node_modules
+.env

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { describe, it } from "node:test";
 import { runAgent } from "../src/agent.ts";
+import { lowerSchemaTypes, toGroqMessages } from "../src/groq.ts";
 import { scriptedModel } from "../src/models.ts";
 import { pickCandidates, scoreChat } from "../src/rank.ts";
 import type { Chat, Model } from "../src/types.ts";
@@ -56,5 +57,23 @@ describe("both approaches, offline", () => {
     const looping: Model = { name: "loop", generate: async () => ({ toolCalls: [{ name: "list_chats", args: {} }], usage: { inputTokens: 1, outputTokens: 1 } }) };
     const result = await runAgent(chats, looping, 4);
     assert.equal(result.stoppedBy, "step_limit");
+  });
+});
+
+describe("groq request shape", () => {
+  it("lowercases schema types for an OpenAI style API", () => {
+    assert.deepEqual(lowerSchemaTypes({ type: "OBJECT", properties: { kind: { type: "STRING", enum: ["a"] } } }), { type: "object", properties: { kind: { type: "string", enum: ["a"] } } });
+  });
+
+  it("pairs every tool result with the call that asked for it", () => {
+    const messages = toGroqMessages("system", [
+      { role: "user", text: "Triage" },
+      { role: "model", toolCalls: [{ id: "a1", name: "read_chat", args: { chatId: "c01" } }, { name: "read_chat", args: { chatId: "c02" } }] },
+      { role: "tool", name: "read_chat", callId: "a1", result: { id: "c01" } },
+      { role: "tool", name: "read_chat", result: { id: "c02" } },
+    ]);
+    const assistant = messages[2] as { tool_calls: ReadonlyArray<{ id: string }> };
+    assert.deepEqual(assistant.tool_calls.map((call) => call.id), ["a1", "call_1_1"]);
+    assert.deepEqual(messages.slice(3).map((message) => (message as { tool_call_id: string }).tool_call_id), ["a1", "call_1_1"]);
   });
 });

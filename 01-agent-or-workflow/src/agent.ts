@@ -27,7 +27,7 @@ export const runAgent = async (chats: ReadonlyArray<Chat>, model: Model, maxStep
     for (const call of calls) {
       const result = await timed("tool", `${call.name}${call.args.chatId ? ` ${String(call.args.chatId)}` : ""}`, () => runTool(call.name, call.args, chats));
       trace.push(result.step);
-      turns.push({ role: "tool", name: call.name, result: result.value });
+      turns.push({ role: "tool", name: call.name, callId: call.id, result: result.value });
     }
   }
   return { approach: "agent", model: model.name, findings: [], trace, stoppedBy: "step_limit" };
