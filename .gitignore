@@ -1,2 +1,3 @@
 results/*.json
+!results/sample-run-*.json
 node_modules

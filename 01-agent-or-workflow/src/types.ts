@@ -24,11 +24,11 @@ export type ModelRequest = {
 
 export type Usage = { inputTokens: number; outputTokens: number };
 
-export type ModelReply = { text?: string; toolCalls: ReadonlyArray<ToolCall>; usage: Usage };
+export type ModelReply = { text?: string; toolCalls: ReadonlyArray<ToolCall>; usage: Usage; waitedMs?: number };
 
 export type Model = { name: string; generate: (request: ModelRequest) => Promise<ModelReply> };
 
-export type TraceStep = { kind: "code" | "model" | "tool"; label: string; ms: number; usage?: Usage };
+export type TraceStep = { kind: "code" | "model" | "tool"; label: string; ms: number; usage?: Usage; waitedMs?: number };
 
 export type RunResult = {
   approach: "workflow" | "agent";

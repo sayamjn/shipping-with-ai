@@ -1,6 +1,12 @@
 import type { Chat, Finding, Model, ModelReply, ModelRequest, ToolCall, Turn } from "./types.ts";
 
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models";
+const MAX_RATE_LIMIT_RETRIES = 6;
+
+const retryDelayMs = (errorBody: string) => {
+  const seconds = Number(/"retryDelay":\s*"(\d+(?:\.\d+)?)s"/.exec(errorBody)?.[1] ?? 30);
+  return Math.ceil(seconds + 1) * 1000;
+};
 
 const toGeminiContent = (turn: Turn) => {
   if (turn.role === "user") return { role: "user", parts: [{ text: turn.text }] };
@@ -18,11 +24,20 @@ export const geminiModel = (apiKey: string, model = process.env.GEMINI_MODEL ?? 
       ...(request.tools ? { tools: [{ functionDeclarations: request.tools }] } : {}),
       ...(request.jsonSchema ? { generationConfig: { responseMimeType: "application/json", responseSchema: request.jsonSchema } } : {}),
     };
-    const response = await fetch(`${GEMINI_URL}/${model}:generateContent`, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
-      body: JSON.stringify(body),
-    });
+    const send = () =>
+      fetch(`${GEMINI_URL}/${model}:generateContent`, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
+        body: JSON.stringify(body),
+      });
+    let waitedMs = 0;
+    let response = await send();
+    for (let attempt = 1; response.status === 429 && attempt <= MAX_RATE_LIMIT_RETRIES; attempt++) {
+      const delayMs = retryDelayMs(await response.text());
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+      waitedMs += delayMs;
+      response = await send();
+    }
     if (!response.ok) throw new Error(`Gemini answered ${response.status}: ${(await response.text()).slice(0, 300)}`);
     const data = await response.json();
     const parts: ReadonlyArray<{ text?: string; functionCall?: ToolCall }> = data.candidates?.[0]?.content?.parts ?? [];
@@ -30,6 +45,7 @@ export const geminiModel = (apiKey: string, model = process.env.GEMINI_MODEL ?? 
       text: parts.map((part) => part.text ?? "").join("") || undefined,
       toolCalls: parts.flatMap((part) => (part.functionCall ? [{ name: part.functionCall.name, args: part.functionCall.args ?? {} }] : [])),
       usage: { inputTokens: data.usageMetadata?.promptTokenCount ?? 0, outputTokens: data.usageMetadata?.candidatesTokenCount ?? 0 },
+      waitedMs,
     };
   },
 });

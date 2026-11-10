@@ -22,6 +22,7 @@ const row = (result: RunResult) => {
     "input tokens": sum.inputTokens,
     "output tokens": sum.outputTokens,
     "time (ms)": sum.ms,
+    "waiting on rate limit (ms)": sum.waitedMs,
     findings: result.findings.length,
     verified,
   };
@@ -29,7 +30,7 @@ const row = (result: RunResult) => {
 
 const printTrace = (result: RunResult) => {
   console.log(`\n${result.approach} trace`);
-  result.trace.forEach((step) => console.log(`  ${step.kind.padEnd(5)} ${String(step.ms).padStart(6)} ms  ${step.label}`));
+  result.trace.forEach((step) => console.log(`  ${step.kind.padEnd(5)} ${String(step.ms).padStart(6)} ms  ${step.label}${step.waitedMs ? ` (waited ${Math.round(step.waitedMs / 1000)} s for the rate limit)` : ""}`));
   result.findings.forEach((finding) =>
     console.log(`  ${finding.verified ? "ok " : "BAD"} ${finding.kind.padEnd(14)} ${finding.chatId}/${finding.messageId} "${finding.quote}"${finding.reason ? ` (${finding.reason})` : ""}`),
   );
