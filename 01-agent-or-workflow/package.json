@@ -1,0 +1,12 @@
+{
+  "name": "agent-or-workflow",
+  "private": true,
+  "type": "module",
+  "description": "The same WhatsApp triage task built as a workflow and as an agent, with traces to compare. Companion to the Shipping with AI article 'Not every AI feature needs an agent'.",
+  "engines": { "node": ">=23.6" },
+  "scripts": {
+    "compare": "node src/compare.ts",
+    "compare:offline": "node src/compare.ts --offline",
+    "test": "node --test \"test/**/*.test.ts\""
+  }
+}
