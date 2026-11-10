@@ -14,6 +14,7 @@ export const runAgent = async (chats: ReadonlyArray<Chat>, model: Model, maxStep
   for (let step = 1; step <= maxSteps; step++) {
     const reply = await timed("model", `step ${step}: decide the next action`, () => model.generate({ system: SYSTEM, turns, tools: agentTools }), (value) => value.usage);
     trace.push(reply.step);
+    if (process.env.TRACE_LIVE) console.error(`agent step ${step}: ${reply.step.ms} ms${reply.step.waitedMs ? `, waited ${reply.step.waitedMs} ms` : ""}`);
     const calls = reply.value.toolCalls;
     if (!calls.length) return { approach: "agent", model: model.name, findings: [], trace, stoppedBy: "error" };
     turns.push({ role: "model", text: reply.value.text, toolCalls: calls });

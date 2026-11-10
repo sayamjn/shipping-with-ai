@@ -2,10 +2,12 @@ import type { Chat, Finding, Model, ModelReply, ModelRequest, ToolCall, Turn } f
 
 const GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models";
 const MAX_RATE_LIMIT_RETRIES = 6;
+const REQUEST_TIMEOUT_MS = 60_000;
+const MAX_WAIT_MS = 90_000;
 
 const retryDelayMs = (errorBody: string) => {
   const seconds = Number(/"retryDelay":\s*"(\d+(?:\.\d+)?)s"/.exec(errorBody)?.[1] ?? 30);
-  return Math.ceil(seconds + 1) * 1000;
+  return Math.min(MAX_WAIT_MS, Math.ceil(seconds + 1) * 1000);
 };
 
 const toGeminiContent = (turn: Turn) => {
@@ -29,6 +31,7 @@ export const geminiModel = (apiKey: string, model = process.env.GEMINI_MODEL ?? 
         method: "POST",
         headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
         body: JSON.stringify(body),
+        signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
       });
     let waitedMs = 0;
     let response = await send();
