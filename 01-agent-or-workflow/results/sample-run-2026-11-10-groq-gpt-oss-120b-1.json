@@ -1,0 +1,224 @@
+{
+  "model": "groq openai/gpt-oss-120b",
+  "workflow": {
+    "approach": "workflow",
+    "model": "groq openai/gpt-oss-120b",
+    "findings": [
+      {
+        "chatId": "c07",
+        "kind": "waiting_on_me",
+        "messageId": "m1",
+        "quote": "Sayam, can you share the deploy notes before 4?",
+        "summary": "Request to share deploy notes before 4",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c01",
+        "kind": "waiting_on_me",
+        "messageId": "m1",
+        "quote": "Hi Sayam, did you get a chance to look at the login bug on staging?",
+        "summary": "Ask if login bug on staging was reviewed",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c01",
+        "kind": "waiting_on_me",
+        "messageId": "m2",
+        "quote": "Can you send me an ETA today?",
+        "summary": "Request for an ETA today",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c04",
+        "kind": "waiting_on_me",
+        "messageId": "m1",
+        "quote": "Are you coming home for the weekend?",
+        "summary": "Ask about weekend visit",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c11",
+        "kind": "waiting_on_me",
+        "messageId": "m1",
+        "quote": "Could you share your availability for a call this week?",
+        "summary": "Request for availability for a call this week",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c02",
+        "kind": "waiting_on_me",
+        "messageId": "m1",
+        "quote": "Bro the API docs link is broken",
+        "summary": "Inform broken API docs link, likely request for fix",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c02",
+        "kind": "i_promised",
+        "messageId": "m2",
+        "quote": "I'll fix the link and send it tomorrow morning",
+        "summary": "Promise to fix and send the API docs link tomorrow morning",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c08",
+        "kind": "i_promised",
+        "messageId": "m1",
+        "quote": "I will review your resume this weekend",
+        "summary": "Promise to review resume this weekend",
+        "verified": true,
+        "reason": null
+      }
+    ],
+    "trace": [
+      {
+        "kind": "code",
+        "label": "rank chats and apply the token budget",
+        "ms": 11
+      },
+      {
+        "kind": "model",
+        "label": "extract findings from 7 chats",
+        "ms": 3118,
+        "usage": {
+          "inputTokens": 878,
+          "outputTokens": 503,
+          "thinkingTokens": 660
+        }
+      },
+      {
+        "kind": "code",
+        "label": "check every quote against its message",
+        "ms": 0
+      }
+    ],
+    "stoppedBy": "done"
+  },
+  "agent": {
+    "approach": "agent",
+    "model": "groq openai/gpt-oss-120b",
+    "findings": [
+      {
+        "chatId": "c01",
+        "kind": "waiting_on_me",
+        "messageId": "m1",
+        "quote": "Hi Sayam, did you get a chance to look at the login bug on staging?",
+        "summary": "Riya asks if Sayam reviewed the login bug on staging.",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c01",
+        "kind": "waiting_on_me",
+        "messageId": "m2",
+        "quote": "Can you send me an ETA today?",
+        "summary": "Riya requests an ETA for the login bug fix.",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c04",
+        "kind": "waiting_on_me",
+        "messageId": "m1",
+        "quote": "Are you coming home for the weekend?",
+        "summary": "Mom asks if Sayam will come home this weekend.",
+        "verified": true,
+        "reason": null
+      },
+      {
+        "chatId": "c07",
+        "kind": "waiting_on_me",
+        "messageId": "m1",
+        "quote": "Sayam, can you share the deploy notes before 4?",
+        "summary": "Team standup asks Sayam to share deploy notes before 4 PM.",
+        "verified": true,
+        "reason": null
+      }
+    ],
+    "trace": [
+      {
+        "kind": "model",
+        "label": "step 1: decide the next action",
+        "ms": 658,
+        "usage": {
+          "inputTokens": 299,
+          "outputTokens": 20,
+          "thinkingTokens": 75
+        }
+      },
+      {
+        "kind": "tool",
+        "label": "list_chats",
+        "ms": 0
+      },
+      {
+        "kind": "model",
+        "label": "step 2: decide the next action",
+        "ms": 736,
+        "usage": {
+          "inputTokens": 672,
+          "outputTokens": 24,
+          "thinkingTokens": 98
+        }
+      },
+      {
+        "kind": "tool",
+        "label": "read_chat c01",
+        "ms": 0
+      },
+      {
+        "kind": "model",
+        "label": "step 3: decide the next action",
+        "ms": 2543,
+        "usage": {
+          "inputTokens": 805,
+          "outputTokens": 24,
+          "thinkingTokens": 149
+        }
+      },
+      {
+        "kind": "tool",
+        "label": "read_chat c04",
+        "ms": 0
+      },
+      {
+        "kind": "model",
+        "label": "step 4: decide the next action",
+        "ms": 744,
+        "usage": {
+          "inputTokens": 885,
+          "outputTokens": 21,
+          "thinkingTokens": 125
+        }
+      },
+      {
+        "kind": "tool",
+        "label": "read_chat c07",
+        "ms": 0
+      },
+      {
+        "kind": "model",
+        "label": "step 5: decide the next action",
+        "ms": 1233,
+        "usage": {
+          "inputTokens": 972,
+          "outputTokens": 288,
+          "thinkingTokens": 166
+        }
+      },
+      {
+        "kind": "code",
+        "label": "check every quote against its message",
+        "ms": 0
+      }
+    ],
+    "stoppedBy": "done"
+  }
+}
