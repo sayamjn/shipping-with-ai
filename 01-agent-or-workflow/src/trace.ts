@@ -13,6 +13,7 @@ export const totals = (trace: ReadonlyArray<TraceStep>) => ({
   toolCalls: trace.filter((step) => step.kind === "tool").length,
   inputTokens: trace.reduce((sum, step) => sum + (step.usage?.inputTokens ?? 0), 0),
   outputTokens: trace.reduce((sum, step) => sum + (step.usage?.outputTokens ?? 0), 0),
+  thinkingTokens: trace.reduce((sum, step) => sum + (step.usage?.thinkingTokens ?? 0), 0),
   ms: trace.reduce((sum, step) => sum + step.ms, 0),
   waitedMs: trace.reduce((sum, step) => sum + (step.waitedMs ?? 0), 0),
 });

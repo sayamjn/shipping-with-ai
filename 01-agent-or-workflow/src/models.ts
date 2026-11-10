@@ -44,7 +44,7 @@ export const geminiModel = (apiKey: string, model = process.env.GEMINI_MODEL ?? 
     return {
       text: parts.map((part) => part.text ?? "").join("") || undefined,
       toolCalls: parts.flatMap((part) => (part.functionCall ? [{ name: part.functionCall.name, args: part.functionCall.args ?? {} }] : [])),
-      usage: { inputTokens: data.usageMetadata?.promptTokenCount ?? 0, outputTokens: data.usageMetadata?.candidatesTokenCount ?? 0 },
+      usage: { inputTokens: data.usageMetadata?.promptTokenCount ?? 0, outputTokens: data.usageMetadata?.candidatesTokenCount ?? 0, thinkingTokens: data.usageMetadata?.thoughtsTokenCount ?? 0 },
       waitedMs,
     };
   },

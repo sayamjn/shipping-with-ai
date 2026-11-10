@@ -22,7 +22,7 @@ export type ModelRequest = {
   jsonSchema?: Record<string, unknown>;
 };
 
-export type Usage = { inputTokens: number; outputTokens: number };
+export type Usage = { inputTokens: number; outputTokens: number; thinkingTokens?: number };
 
 export type ModelReply = { text?: string; toolCalls: ReadonlyArray<ToolCall>; usage: Usage; waitedMs?: number };
 
