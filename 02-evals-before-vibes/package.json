@@ -1,0 +1,12 @@
+{
+  "name": "evals-before-vibes",
+  "private": true,
+  "type": "module",
+  "description": "Two prompts for the same WhatsApp triage task, judged on three hand-picked examples and then on a labelled set, with a code grader and an LLM judge checked against the labels. Companion to the Shipping with AI article 'Evals before vibes'.",
+  "engines": { "node": ">=23.6" },
+  "scripts": {
+    "eval": "node --env-file-if-exists=.env src/run.ts",
+    "eval:offline": "node src/run.ts --offline",
+    "test": "node --test \"test/**/*.test.ts\""
+  }
+}
