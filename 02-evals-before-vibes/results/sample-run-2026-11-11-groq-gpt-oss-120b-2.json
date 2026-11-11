@@ -1,0 +1,2744 @@
+{
+  "model": "groq openai/gpt-oss-120b",
+  "startedAt": "2026-11-11T07:42:59.379Z",
+  "cases": 24,
+  "prompts": {
+    "v1": "You read WhatsApp chats for Sayam. Return only what is waiting on him (someone asked him something) and what he promised. Copy the quote exactly from the message.",
+    "v2": "You read WhatsApp chats for Sayam. Messages with from \"me\" are Sayam's; messages with from \"them\" are from other people.\nReturn two kinds of findings:\n- waiting_on_me: someone asks Sayam a question or requests something from him, and he has not answered it or done it later in the chat.\n- i_promised: Sayam commits to a future action, in any language including Hinglish, and has not done it later in the chat.\nThese do not count: statements and updates, even about a problem; rhetorical questions; questions or requests addressed to someone else; anything Sayam has already answered or done.\nIf nothing counts, return an empty list. Copy the quote exactly from the message."
+  },
+  "judge": {
+    "system": "You check one finding from a WhatsApp triage for Sayam. Messages with from \"me\" are Sayam's; messages with from \"them\" are from other people. Read the chat, then answer the question about the named message with pass or fail and a one line reason.",
+    "questions": {
+      "waiting_on_me": "Is this message really something waiting on Sayam?",
+      "i_promised": "Is this message really a promise Sayam made?"
+    }
+  },
+  "results": [
+    {
+      "version": "v1",
+      "vibes": {
+        "grades": [
+          {
+            "caseId": "vibes-question-invoice",
+            "tags": [
+              "vibes",
+              "question"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Can you send me the invoice for October?",
+                "summary": "Riya requested the October invoice",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "vibes-promise-deck",
+            "tags": [
+              "vibes",
+              "promise"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I'll send you the deck tonight",
+                "summary": "Promised to send the deck tonight",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "vibes-two-chats",
+            "tags": [
+              "vibes",
+              "question",
+              "promise",
+              "multi-chat"
+            ],
+            "expectedCount": 2,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Are you coming home this weekend?",
+                "summary": "Mom asks if Sayam is coming home this weekend.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              },
+              {
+                "chatId": "c2",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I will call you after lunch",
+                "summary": "Sayam promises to call Arjun after lunch.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          }
+        ],
+        "totals": {
+          "cases": 3,
+          "casesPassed": 3,
+          "expected": 4,
+          "found": 4,
+          "falsePositives": 0,
+          "missed": 0,
+          "wrongKind": 0,
+          "quoteFailures": 0,
+          "errors": 0
+        },
+        "trace": [
+          {
+            "kind": "model",
+            "label": "v1 extract vibes-question-invoice",
+            "ms": 1626,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 59,
+              "thinkingTokens": 123
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract vibes-promise-deck",
+            "ms": 765,
+            "usage": {
+              "inputTokens": 347,
+              "outputTokens": 56,
+              "thinkingTokens": 93
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract vibes-two-chats",
+            "ms": 799,
+            "usage": {
+              "inputTokens": 416,
+              "outputTokens": 101,
+              "thinkingTokens": 161
+            }
+          }
+        ]
+      },
+      "all": {
+        "grades": [
+          {
+            "caseId": "vibes-question-invoice",
+            "tags": [
+              "vibes",
+              "question"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Can you send me the invoice for October?",
+                "summary": "Send invoice for October",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "vibes-promise-deck",
+            "tags": [
+              "vibes",
+              "promise"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I'll send you the deck tonight",
+                "summary": "Sayam promised to send the deck tonight",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "vibes-two-chats",
+            "tags": [
+              "vibes",
+              "question",
+              "promise",
+              "multi-chat"
+            ],
+            "expectedCount": 2,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Are you coming home this weekend?",
+                "summary": "Asked if Sayam will come home this weekend.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              },
+              {
+                "chatId": "c2",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I will call you after lunch",
+                "summary": "Promised to call after lunch.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "question-availability",
+            "tags": [
+              "question"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Could you share your availability for a call this week?",
+                "summary": "Asked for availability for a call this week",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "question-hinglish",
+            "tags": [
+              "question",
+              "hinglish"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Sayam, kal ki meeting ka time kya hai?",
+                "summary": "Asked about the meeting time for tomorrow",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "question-group-to-sayam",
+            "tags": [
+              "question",
+              "group"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m2",
+                "quote": "Sayam, can you share the deploy notes before 4?",
+                "summary": "Asked to share the deploy notes before 4",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "question-with-ill",
+            "tags": [
+              "question",
+              "wrong-kind-trap"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "I'll be in office tomorrow, can you bring the charger?",
+                "summary": "Isha asks Sayam to bring the charger to the office",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "request-please",
+            "tags": [
+              "request"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Please send me the release notes by 5",
+                "summary": "Priya asked for the release notes by 5",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "request-need-review",
+            "tags": [
+              "request"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Need your review on PR 214 before we merge",
+                "summary": "Review PR 214",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "request-hinglish",
+            "tags": [
+              "request",
+              "hinglish"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Bhai ek baar PR dekh lena jab free ho",
+                "summary": "Asked Sayam to review PR when free",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-reply-to-request",
+            "tags": [
+              "promise",
+              "answered"
+            ],
+            "expectedCount": 1,
+            "pass": false,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Can you check the staging login?",
+                "summary": "Asked to check the staging login",
+                "verified": true,
+                "reason": null,
+                "match": "unexpected"
+              },
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m2",
+                "quote": "I'll look at it after standup",
+                "summary": "Promised to look at it after standup",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-hinglish-bhej-dunga",
+            "tags": [
+              "promise",
+              "hinglish",
+              "answered"
+            ],
+            "expectedCount": 1,
+            "pass": false,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Bhai deck ready hai?",
+                "summary": "Asked if the deck is ready",
+                "verified": true,
+                "reason": null,
+                "match": "unexpected"
+              },
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m2",
+                "quote": "Kal tak bhej dunga",
+                "summary": "Promised to send it by tomorrow",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-hinglish-call",
+            "tags": [
+              "promise",
+              "hinglish"
+            ],
+            "expectedCount": 1,
+            "pass": false,
+            "findings": [],
+            "missed": [
+              {
+                "chatId": "c1",
+                "messageId": "m1",
+                "kind": "i_promised"
+              }
+            ],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-theirs-not-mine",
+            "tags": [
+              "promise",
+              "sender"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I'll call you at 6",
+                "summary": "Promised to call at 6",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "statement-broken-link",
+            "tags": [
+              "statement"
+            ],
+            "expectedCount": 0,
+            "pass": false,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Bro the API docs link is broken",
+                "summary": "Arjun says the API docs link is broken",
+                "verified": true,
+                "reason": null,
+                "match": "unexpected"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "statement-build-green",
+            "tags": [
+              "statement"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "group-question-to-someone-else",
+            "tags": [
+              "group",
+              "other-person"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "muted-group-notices",
+            "tags": [
+              "muted",
+              "group",
+              "nothing"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "already-answered",
+            "tags": [
+              "question",
+              "answered"
+            ],
+            "expectedCount": 0,
+            "pass": false,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Can you send the invoice?",
+                "summary": "Riya asked Sayam to send the invoice.",
+                "verified": true,
+                "reason": null,
+                "match": "unexpected"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-kept",
+            "tags": [
+              "promise",
+              "done"
+            ],
+            "expectedCount": 0,
+            "pass": false,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I'll share the Figma link tonight",
+                "summary": "He promised to share the Figma link tonight",
+                "verified": true,
+                "reason": null,
+                "match": "unexpected"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "emoji-only-reply",
+            "tags": [
+              "emoji",
+              "nothing"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "rhetorical-question",
+            "tags": [
+              "rhetorical"
+            ],
+            "expectedCount": 0,
+            "pass": false,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Why is Bengaluru traffic like this every single day?",
+                "summary": "Nikhil asks why Bengaluru traffic is always bad",
+                "verified": true,
+                "reason": null,
+                "match": "unexpected"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "nothing-to-do",
+            "tags": [
+              "nothing",
+              "multi-chat"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "mixed-three-chats",
+            "tags": [
+              "question",
+              "promise",
+              "multi-chat"
+            ],
+            "expectedCount": 2,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Did you check the login bug on staging?",
+                "summary": "Riya asked about the login bug on staging",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              },
+              {
+                "chatId": "c2",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I will review your resume this weekend",
+                "summary": "Sayam promised to review Neha's resume this weekend",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          }
+        ],
+        "totals": {
+          "cases": 24,
+          "casesPassed": 17,
+          "expected": 17,
+          "found": 16,
+          "falsePositives": 6,
+          "missed": 1,
+          "wrongKind": 0,
+          "quoteFailures": 0,
+          "errors": 0
+        },
+        "trace": [
+          {
+            "kind": "model",
+            "label": "v1 extract vibes-question-invoice",
+            "ms": 1091,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 56,
+              "thinkingTokens": 246
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract vibes-promise-deck",
+            "ms": 1093,
+            "usage": {
+              "inputTokens": 347,
+              "outputTokens": 57,
+              "thinkingTokens": 199
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract vibes-two-chats",
+            "ms": 4131,
+            "usage": {
+              "inputTokens": 416,
+              "outputTokens": 97,
+              "thinkingTokens": 198
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract question-availability",
+            "ms": 1313,
+            "usage": {
+              "inputTokens": 358,
+              "outputTokens": 62,
+              "thinkingTokens": 234
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract question-hinglish",
+            "ms": 3962,
+            "usage": {
+              "inputTokens": 352,
+              "outputTokens": 61,
+              "thinkingTokens": 118
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract question-group-to-sayam",
+            "ms": 3990,
+            "usage": {
+              "inputTokens": 397,
+              "outputTokens": 65,
+              "thinkingTokens": 150
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract question-with-ill",
+            "ms": 2872,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 67,
+              "thinkingTokens": 113
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract request-please",
+            "ms": 3858,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 62,
+              "thinkingTokens": 216
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract request-need-review",
+            "ms": 4997,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 57,
+              "thinkingTokens": 233
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract request-hinglish",
+            "ms": 2787,
+            "usage": {
+              "inputTokens": 352,
+              "outputTokens": 62,
+              "thinkingTokens": 128
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract promise-reply-to-request",
+            "ms": 1091,
+            "usage": {
+              "inputTokens": 386,
+              "outputTokens": 96,
+              "thinkingTokens": 214
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract promise-hinglish-bhej-dunga",
+            "ms": 5183,
+            "usage": {
+              "inputTokens": 384,
+              "outputTokens": 92,
+              "thinkingTokens": 172
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract promise-hinglish-call",
+            "ms": 3794,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 18,
+              "thinkingTokens": 85
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract promise-theirs-not-mine",
+            "ms": 893,
+            "usage": {
+              "inputTokens": 386,
+              "outputTokens": 57,
+              "thinkingTokens": 185
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract statement-broken-link",
+            "ms": 4914,
+            "usage": {
+              "inputTokens": 348,
+              "outputTokens": 59,
+              "thinkingTokens": 125
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract statement-build-green",
+            "ms": 2788,
+            "usage": {
+              "inputTokens": 348,
+              "outputTokens": 18,
+              "thinkingTokens": 79
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract group-question-to-someone-else",
+            "ms": 525,
+            "usage": {
+              "inputTokens": 352,
+              "outputTokens": 18,
+              "thinkingTokens": 124
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract muted-group-notices",
+            "ms": 2945,
+            "usage": {
+              "inputTokens": 388,
+              "outputTokens": 18,
+              "thinkingTokens": 132
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract already-answered",
+            "ms": 1472,
+            "usage": {
+              "inputTokens": 389,
+              "outputTokens": 59,
+              "thinkingTokens": 209
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract promise-kept",
+            "ms": 3970,
+            "usage": {
+              "inputTokens": 426,
+              "outputTokens": 59,
+              "thinkingTokens": 177
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract emoji-only-reply",
+            "ms": 4298,
+            "usage": {
+              "inputTokens": 380,
+              "outputTokens": 18,
+              "thinkingTokens": 133
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract rhetorical-question",
+            "ms": 1539,
+            "usage": {
+              "inputTokens": 352,
+              "outputTokens": 63,
+              "thinkingTokens": 206
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract nothing-to-do",
+            "ms": 4012,
+            "usage": {
+              "inputTokens": 416,
+              "outputTokens": 18,
+              "thinkingTokens": 148
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v1 extract mixed-three-chats",
+            "ms": 3652,
+            "usage": {
+              "inputTokens": 491,
+              "outputTokens": 103,
+              "thinkingTokens": 225
+            },
+            "waitedMs": 2000
+          }
+        ]
+      },
+      "judge": {
+        "verdicts": [
+          {
+            "caseId": "vibes-question-invoice",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Can you send me the invoice for October?",
+            "verdict": "pass",
+            "reason": "The client requests the invoice, so the response/action is pending from Sayam."
+          },
+          {
+            "caseId": "vibes-promise-deck",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I'll send you the deck tonight",
+            "verdict": "pass",
+            "reason": "The message explicitly commits to sending the deck later, which is a clear promise."
+          },
+          {
+            "caseId": "vibes-two-chats",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Are you coming home this weekend?",
+            "verdict": "pass",
+            "reason": "The mother asks a question expecting Sayam’s response, so it is indeed waiting on him."
+          },
+          {
+            "caseId": "vibes-two-chats",
+            "chatId": "c2",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I will call you after lunch",
+            "verdict": "pass",
+            "reason": "The statement \"I will call you after lunch\" is a clear commitment, qualifying as a promise."
+          },
+          {
+            "caseId": "question-availability",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Could you share your availability for a call this week?",
+            "verdict": "pass",
+            "reason": "The recruiter asks for Sayam's availability, which requires Sayam to respond."
+          },
+          {
+            "caseId": "question-hinglish",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Sayam, kal ki meeting ka time kya hai?",
+            "verdict": "pass",
+            "reason": "The sender asks Sayam for the meeting time, requiring his response."
+          },
+          {
+            "caseId": "question-group-to-sayam",
+            "chatId": "c1",
+            "messageId": "m2",
+            "kind": "waiting_on_me",
+            "quote": "Sayam, can you share the deploy notes before 4?",
+            "verdict": "pass",
+            "reason": "The message is a direct request to Sayam, indicating it is waiting on him."
+          },
+          {
+            "caseId": "question-with-ill",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "I'll be in office tomorrow, can you bring the charger?",
+            "verdict": "pass",
+            "reason": "Isha is asking Sayam to bring the charger, so it requires Sayam's action."
+          },
+          {
+            "caseId": "request-please",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Please send me the release notes by 5",
+            "verdict": "pass",
+            "reason": "The request asks Sayam to send release notes, so it is waiting on Sayam."
+          },
+          {
+            "caseId": "request-need-review",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Need your review on PR 214 before we merge",
+            "verdict": "pass",
+            "reason": "The other person is explicitly requesting Sayam's review, so it is waiting on Sayam"
+          },
+          {
+            "caseId": "request-hinglish",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Bhai ek baar PR dekh lena jab free ho",
+            "verdict": "pass",
+            "reason": "The sender asks Sayam to review a PR when free, which is a request awaiting Sayam's action."
+          },
+          {
+            "caseId": "promise-reply-to-request",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Can you check the staging login?",
+            "verdict": "pass",
+            "reason": "The request asks Sayam to check the login, so it is waiting on him"
+          },
+          {
+            "caseId": "promise-reply-to-request",
+            "chatId": "c1",
+            "messageId": "m2",
+            "kind": "i_promised",
+            "quote": "I'll look at it after standup",
+            "verdict": "pass",
+            "reason": "The message explicitly commits to reviewing the issue after standup, which is a promise."
+          },
+          {
+            "caseId": "promise-hinglish-bhej-dunga",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Bhai deck ready hai?",
+            "verdict": "pass",
+            "reason": "The sender asks if the deck is ready, which requires Sayam to respond, so it is indeed waiting on him."
+          },
+          {
+            "caseId": "promise-hinglish-bhej-dunga",
+            "chatId": "c1",
+            "messageId": "m2",
+            "kind": "i_promised",
+            "quote": "Kal tak bhej dunga",
+            "verdict": "pass",
+            "reason": "The text is a clear commitment to send the deck by tomorrow, which is a promise."
+          },
+          {
+            "caseId": "promise-theirs-not-mine",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I'll call you at 6",
+            "verdict": "pass",
+            "reason": "The statement 'I'll call you at 6' is a clear commitment, constituting a promise by Sayam."
+          },
+          {
+            "caseId": "statement-broken-link",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Bro the API docs link is broken",
+            "verdict": "pass",
+            "reason": "The other party reports a broken API docs link, implying they are awaiting Sayam to fix or provide the correct link."
+          },
+          {
+            "caseId": "already-answered",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Can you send the invoice?",
+            "verdict": "pass",
+            "reason": "The client is asking Sayam to send the invoice, so it indeed requires Sayam's action."
+          },
+          {
+            "caseId": "promise-kept",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I'll share the Figma link tonight",
+            "verdict": "pass",
+            "reason": "The statement 'I'll share the Figma link tonight' is a clear commitment, thus a promise."
+          },
+          {
+            "caseId": "rhetorical-question",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Why is Bengaluru traffic like this every single day?",
+            "verdict": "pass",
+            "reason": "The message is a direct question from the other person, indicating it awaits Sayam's response."
+          },
+          {
+            "caseId": "mixed-three-chats",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Did you check the login bug on staging?",
+            "verdict": "pass",
+            "reason": "Riya is asking Sayam to check the login bug, so it is indeed waiting on Sayam."
+          },
+          {
+            "caseId": "mixed-three-chats",
+            "chatId": "c2",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I will review your resume this weekend",
+            "verdict": "pass",
+            "reason": "The message explicitly commits Sayam to review the resume in the future, matching a promise."
+          }
+        ],
+        "calibration": {
+          "judged": 22,
+          "agreed": 16,
+          "notJudged": 0,
+          "judgePassedLabelsRejected": 6,
+          "judgeFailedLabelsAccepted": 0,
+          "disagreements": [
+            {
+              "caseId": "promise-reply-to-request",
+              "chatId": "c1",
+              "messageId": "m1",
+              "kind": "waiting_on_me",
+              "quote": "Can you check the staging login?",
+              "verdict": "pass",
+              "reason": "The request asks Sayam to check the login, so it is waiting on him",
+              "labelsSay": "incorrect"
+            },
+            {
+              "caseId": "promise-hinglish-bhej-dunga",
+              "chatId": "c1",
+              "messageId": "m1",
+              "kind": "waiting_on_me",
+              "quote": "Bhai deck ready hai?",
+              "verdict": "pass",
+              "reason": "The sender asks if the deck is ready, which requires Sayam to respond, so it is indeed waiting on him.",
+              "labelsSay": "incorrect"
+            },
+            {
+              "caseId": "statement-broken-link",
+              "chatId": "c1",
+              "messageId": "m1",
+              "kind": "waiting_on_me",
+              "quote": "Bro the API docs link is broken",
+              "verdict": "pass",
+              "reason": "The other party reports a broken API docs link, implying they are awaiting Sayam to fix or provide the correct link.",
+              "labelsSay": "incorrect"
+            },
+            {
+              "caseId": "already-answered",
+              "chatId": "c1",
+              "messageId": "m1",
+              "kind": "waiting_on_me",
+              "quote": "Can you send the invoice?",
+              "verdict": "pass",
+              "reason": "The client is asking Sayam to send the invoice, so it indeed requires Sayam's action.",
+              "labelsSay": "incorrect"
+            },
+            {
+              "caseId": "promise-kept",
+              "chatId": "c1",
+              "messageId": "m1",
+              "kind": "i_promised",
+              "quote": "I'll share the Figma link tonight",
+              "verdict": "pass",
+              "reason": "The statement 'I'll share the Figma link tonight' is a clear commitment, thus a promise.",
+              "labelsSay": "incorrect"
+            },
+            {
+              "caseId": "rhetorical-question",
+              "chatId": "c1",
+              "messageId": "m1",
+              "kind": "waiting_on_me",
+              "quote": "Why is Bengaluru traffic like this every single day?",
+              "verdict": "pass",
+              "reason": "The message is a direct question from the other person, indicating it awaits Sayam's response.",
+              "labelsSay": "incorrect"
+            }
+          ]
+        },
+        "trace": [
+          {
+            "kind": "model",
+            "label": "judge vibes-question-invoice c1/m1",
+            "ms": 768,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 37,
+              "thinkingTokens": 116
+            }
+          },
+          {
+            "kind": "model",
+            "label": "judge vibes-promise-deck c1/m1",
+            "ms": 4793,
+            "usage": {
+              "inputTokens": 344,
+              "outputTokens": 38,
+              "thinkingTokens": 88
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "judge vibes-two-chats c1/m1",
+            "ms": 3769,
+            "usage": {
+              "inputTokens": 345,
+              "outputTokens": 41,
+              "thinkingTokens": 76
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge vibes-two-chats c2/m1",
+            "ms": 3686,
+            "usage": {
+              "inputTokens": 344,
+              "outputTokens": 42,
+              "thinkingTokens": 102
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge question-availability c1/m1",
+            "ms": 3890,
+            "usage": {
+              "inputTokens": 360,
+              "outputTokens": 38,
+              "thinkingTokens": 69
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge question-hinglish c1/m1",
+            "ms": 2707,
+            "usage": {
+              "inputTokens": 354,
+              "outputTokens": 36,
+              "thinkingTokens": 91
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "judge question-group-to-sayam c1/m2",
+            "ms": 3850,
+            "usage": {
+              "inputTokens": 401,
+              "outputTokens": 40,
+              "thinkingTokens": 81
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge question-with-ill c1/m1",
+            "ms": 3786,
+            "usage": {
+              "inputTokens": 356,
+              "outputTokens": 41,
+              "thinkingTokens": 89
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge request-please c1/m1",
+            "ms": 3895,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 40,
+              "thinkingTokens": 115
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge request-need-review c1/m1",
+            "ms": 3687,
+            "usage": {
+              "inputTokens": 354,
+              "outputTokens": 39,
+              "thinkingTokens": 71
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge request-hinglish c1/m1",
+            "ms": 3717,
+            "usage": {
+              "inputTokens": 354,
+              "outputTokens": 44,
+              "thinkingTokens": 97
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-reply-to-request c1/m1",
+            "ms": 627,
+            "usage": {
+              "inputTokens": 384,
+              "outputTokens": 38,
+              "thinkingTokens": 74
+            }
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-reply-to-request c1/m2",
+            "ms": 4668,
+            "usage": {
+              "inputTokens": 384,
+              "outputTokens": 39,
+              "thinkingTokens": 64
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-hinglish-bhej-dunga c1/m1",
+            "ms": 3887,
+            "usage": {
+              "inputTokens": 381,
+              "outputTokens": 46,
+              "thinkingTokens": 104
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-hinglish-bhej-dunga c1/m2",
+            "ms": 3788,
+            "usage": {
+              "inputTokens": 381,
+              "outputTokens": 40,
+              "thinkingTokens": 71
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-theirs-not-mine c1/m1",
+            "ms": 3655,
+            "usage": {
+              "inputTokens": 383,
+              "outputTokens": 45,
+              "thinkingTokens": 74
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge statement-broken-link c1/m1",
+            "ms": 3849,
+            "usage": {
+              "inputTokens": 346,
+              "outputTokens": 46,
+              "thinkingTokens": 110
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge already-answered c1/m1",
+            "ms": 3577,
+            "usage": {
+              "inputTokens": 386,
+              "outputTokens": 42,
+              "thinkingTokens": 103
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-kept c1/m1",
+            "ms": 4633,
+            "usage": {
+              "inputTokens": 424,
+              "outputTokens": 42,
+              "thinkingTokens": 78
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "judge rhetorical-question c1/m1",
+            "ms": 3845,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 41,
+              "thinkingTokens": 92
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge mixed-three-chats c1/m1",
+            "ms": 3789,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 43,
+              "thinkingTokens": 106
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge mixed-three-chats c2/m1",
+            "ms": 2853,
+            "usage": {
+              "inputTokens": 346,
+              "outputTokens": 40,
+              "thinkingTokens": 81
+            },
+            "waitedMs": 2000
+          }
+        ]
+      }
+    },
+    {
+      "version": "v2",
+      "vibes": {
+        "grades": [
+          {
+            "caseId": "vibes-question-invoice",
+            "tags": [
+              "vibes",
+              "question"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Can you send me the invoice for October?",
+                "summary": "Riya asks Sayam to send the October invoice.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "vibes-promise-deck",
+            "tags": [
+              "vibes",
+              "promise"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I'll send you the deck tonight",
+                "summary": "Sayam promised to send the deck tonight",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "vibes-two-chats",
+            "tags": [
+              "vibes",
+              "question",
+              "promise",
+              "multi-chat"
+            ],
+            "expectedCount": 2,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Are you coming home this weekend?",
+                "summary": "Mom asks if Sayam will come home this weekend.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              },
+              {
+                "chatId": "c2",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I will call you after lunch",
+                "summary": "Sayam promises to call Arjun after lunch.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          }
+        ],
+        "totals": {
+          "cases": 3,
+          "casesPassed": 3,
+          "expected": 4,
+          "found": 4,
+          "falsePositives": 0,
+          "missed": 0,
+          "wrongKind": 0,
+          "quoteFailures": 0,
+          "errors": 0
+        },
+        "trace": [
+          {
+            "kind": "model",
+            "label": "v2 extract vibes-question-invoice",
+            "ms": 5078,
+            "usage": {
+              "inputTokens": 467,
+              "outputTokens": 63,
+              "thinkingTokens": 134
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract vibes-promise-deck",
+            "ms": 6104,
+            "usage": {
+              "inputTokens": 461,
+              "outputTokens": 57,
+              "thinkingTokens": 159
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract vibes-two-chats",
+            "ms": 1426,
+            "usage": {
+              "inputTokens": 530,
+              "outputTokens": 101,
+              "thinkingTokens": 265
+            }
+          }
+        ]
+      },
+      "all": {
+        "grades": [
+          {
+            "caseId": "vibes-question-invoice",
+            "tags": [
+              "vibes",
+              "question"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Can you send me the invoice for October?",
+                "summary": "Riya asks for the October invoice.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "vibes-promise-deck",
+            "tags": [
+              "vibes",
+              "promise"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I'll send you the deck tonight",
+                "summary": "Sayam promised to send the deck that night",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "vibes-two-chats",
+            "tags": [
+              "vibes",
+              "question",
+              "promise",
+              "multi-chat"
+            ],
+            "expectedCount": 2,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Are you coming home this weekend?",
+                "summary": "Mom asks if Sayam is coming home this weekend",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              },
+              {
+                "chatId": "c2",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I will call you after lunch",
+                "summary": "Sayam promises to call after lunch",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "question-availability",
+            "tags": [
+              "question"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Could you share your availability for a call this week?",
+                "summary": "Vikram asks Sayam to share his availability for a call this week.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "question-hinglish",
+            "tags": [
+              "question",
+              "hinglish"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Sayam, kal ki meeting ka time kya hai?",
+                "summary": "Asked about the time of tomorrow's meeting",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "question-group-to-sayam",
+            "tags": [
+              "question",
+              "group"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m2",
+                "quote": "Sayam, can you share the deploy notes before 4?",
+                "summary": "Sayam is asked to share the deploy notes before 4",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "question-with-ill",
+            "tags": [
+              "question",
+              "wrong-kind-trap"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "I'll be in office tomorrow, can you bring the charger?",
+                "summary": "Isha asks Sayam to bring the charger to the office",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "request-please",
+            "tags": [
+              "request"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Please send me the release notes by 5",
+                "summary": "Request to send release notes by 5",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "request-need-review",
+            "tags": [
+              "request"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Need your review on PR 214 before we merge",
+                "summary": "They requested a review on PR 214",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "request-hinglish",
+            "tags": [
+              "request",
+              "hinglish"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Bhai ek baar PR dekh lena jab free ho",
+                "summary": "Aman asks Sayam to review a PR when free",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-reply-to-request",
+            "tags": [
+              "promise",
+              "answered"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m2",
+                "quote": "I'll look at it after standup",
+                "summary": "Sayam promised to check the staging login after standup",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-hinglish-bhej-dunga",
+            "tags": [
+              "promise",
+              "hinglish",
+              "answered"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m2",
+                "quote": "Kal tak bhej dunga",
+                "summary": "Promise to send the deck by tomorrow",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-hinglish-call",
+            "tags": [
+              "promise",
+              "hinglish"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "Main kal call karta hoon, abhi meeting mein hoon",
+                "summary": "Said he'll call tomorrow",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-theirs-not-mine",
+            "tags": [
+              "promise",
+              "sender"
+            ],
+            "expectedCount": 1,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I'll call you at 6",
+                "summary": "Sayam promised to call at 6",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "statement-broken-link",
+            "tags": [
+              "statement"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "statement-build-green",
+            "tags": [
+              "statement"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "group-question-to-someone-else",
+            "tags": [
+              "group",
+              "other-person"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "muted-group-notices",
+            "tags": [
+              "muted",
+              "group",
+              "nothing"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "already-answered",
+            "tags": [
+              "question",
+              "answered"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "promise-kept",
+            "tags": [
+              "promise",
+              "done"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "emoji-only-reply",
+            "tags": [
+              "emoji",
+              "nothing"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "rhetorical-question",
+            "tags": [
+              "rhetorical"
+            ],
+            "expectedCount": 0,
+            "pass": false,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Why is Bengaluru traffic like this every single day?",
+                "summary": "Nikhil asks why Bengaluru traffic is like this every day",
+                "verified": true,
+                "reason": null,
+                "match": "unexpected"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "nothing-to-do",
+            "tags": [
+              "nothing",
+              "multi-chat"
+            ],
+            "expectedCount": 0,
+            "pass": true,
+            "findings": [],
+            "missed": [],
+            "wrongKind": []
+          },
+          {
+            "caseId": "mixed-three-chats",
+            "tags": [
+              "question",
+              "promise",
+              "multi-chat"
+            ],
+            "expectedCount": 2,
+            "pass": true,
+            "findings": [
+              {
+                "chatId": "c1",
+                "kind": "waiting_on_me",
+                "messageId": "m1",
+                "quote": "Did you check the login bug on staging?",
+                "summary": "Riya asked if Sayam checked the login bug on staging.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              },
+              {
+                "chatId": "c2",
+                "kind": "i_promised",
+                "messageId": "m1",
+                "quote": "I will review your resume this weekend",
+                "summary": "Sayam promised to review the resume over the weekend.",
+                "verified": true,
+                "reason": null,
+                "match": "correct"
+              }
+            ],
+            "missed": [],
+            "wrongKind": []
+          }
+        ],
+        "totals": {
+          "cases": 24,
+          "casesPassed": 23,
+          "expected": 17,
+          "found": 17,
+          "falsePositives": 1,
+          "missed": 0,
+          "wrongKind": 0,
+          "quoteFailures": 0,
+          "errors": 0
+        },
+        "trace": [
+          {
+            "kind": "model",
+            "label": "v2 extract vibes-question-invoice",
+            "ms": 8403,
+            "usage": {
+              "inputTokens": 467,
+              "outputTokens": 59,
+              "thinkingTokens": 244
+            },
+            "waitedMs": 7000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract vibes-promise-deck",
+            "ms": 3795,
+            "usage": {
+              "inputTokens": 461,
+              "outputTokens": 58,
+              "thinkingTokens": 148
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract vibes-two-chats",
+            "ms": 6441,
+            "usage": {
+              "inputTokens": 530,
+              "outputTokens": 97,
+              "thinkingTokens": 278
+            },
+            "waitedMs": 5000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract question-availability",
+            "ms": 7951,
+            "usage": {
+              "inputTokens": 472,
+              "outputTokens": 70,
+              "thinkingTokens": 192
+            },
+            "waitedMs": 6000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract question-hinglish",
+            "ms": 1987,
+            "usage": {
+              "inputTokens": 466,
+              "outputTokens": 62,
+              "thinkingTokens": 196
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract question-group-to-sayam",
+            "ms": 3806,
+            "usage": {
+              "inputTokens": 511,
+              "outputTokens": 68,
+              "thinkingTokens": 152
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract question-with-ill",
+            "ms": 3867,
+            "usage": {
+              "inputTokens": 467,
+              "outputTokens": 66,
+              "thinkingTokens": 215
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract request-please",
+            "ms": 3071,
+            "usage": {
+              "inputTokens": 467,
+              "outputTokens": 60,
+              "thinkingTokens": 239
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract request-need-review",
+            "ms": 5835,
+            "usage": {
+              "inputTokens": 467,
+              "outputTokens": 61,
+              "thinkingTokens": 168
+            },
+            "waitedMs": 5000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract request-hinglish",
+            "ms": 5225,
+            "usage": {
+              "inputTokens": 466,
+              "outputTokens": 65,
+              "thinkingTokens": 219
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract promise-reply-to-request",
+            "ms": 5020,
+            "usage": {
+              "inputTokens": 500,
+              "outputTokens": 61,
+              "thinkingTokens": 338
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract promise-hinglish-bhej-dunga",
+            "ms": 4153,
+            "usage": {
+              "inputTokens": 498,
+              "outputTokens": 56,
+              "thinkingTokens": 299
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract promise-hinglish-call",
+            "ms": 7403,
+            "usage": {
+              "inputTokens": 467,
+              "outputTokens": 61,
+              "thinkingTokens": 309
+            },
+            "waitedMs": 5000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract promise-theirs-not-mine",
+            "ms": 5747,
+            "usage": {
+              "inputTokens": 500,
+              "outputTokens": 57,
+              "thinkingTokens": 205
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract statement-broken-link",
+            "ms": 419,
+            "usage": {
+              "inputTokens": 462,
+              "outputTokens": 18,
+              "thinkingTokens": 71
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract statement-build-green",
+            "ms": 3655,
+            "usage": {
+              "inputTokens": 462,
+              "outputTokens": 18,
+              "thinkingTokens": 91
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract group-question-to-someone-else",
+            "ms": 2989,
+            "usage": {
+              "inputTokens": 466,
+              "outputTokens": 18,
+              "thinkingTokens": 125
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract muted-group-notices",
+            "ms": 4916,
+            "usage": {
+              "inputTokens": 502,
+              "outputTokens": 18,
+              "thinkingTokens": 99
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract already-answered",
+            "ms": 4713,
+            "usage": {
+              "inputTokens": 503,
+              "outputTokens": 18,
+              "thinkingTokens": 109
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract promise-kept",
+            "ms": 2908,
+            "usage": {
+              "inputTokens": 540,
+              "outputTokens": 18,
+              "thinkingTokens": 134
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract emoji-only-reply",
+            "ms": 4222,
+            "usage": {
+              "inputTokens": 494,
+              "outputTokens": 18,
+              "thinkingTokens": 68
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract rhetorical-question",
+            "ms": 991,
+            "usage": {
+              "inputTokens": 466,
+              "outputTokens": 65,
+              "thinkingTokens": 291
+            }
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract nothing-to-do",
+            "ms": 6808,
+            "usage": {
+              "inputTokens": 530,
+              "outputTokens": 18,
+              "thinkingTokens": 83
+            },
+            "waitedMs": 6000
+          },
+          {
+            "kind": "model",
+            "label": "v2 extract mixed-three-chats",
+            "ms": 5242,
+            "usage": {
+              "inputTokens": 605,
+              "outputTokens": 107,
+              "thinkingTokens": 197
+            },
+            "waitedMs": 4000
+          }
+        ]
+      },
+      "judge": {
+        "verdicts": [
+          {
+            "caseId": "vibes-question-invoice",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Can you send me the invoice for October?",
+            "verdict": "pass",
+            "reason": "The client is asking Sayam to send the invoice, so it is waiting on Sayam."
+          },
+          {
+            "caseId": "vibes-promise-deck",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I'll send you the deck tonight",
+            "verdict": "pass",
+            "reason": "The statement 'I'll send you the deck tonight' is a clear commitment, qualifying as a promise."
+          },
+          {
+            "caseId": "vibes-two-chats",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Are you coming home this weekend?",
+            "verdict": "pass",
+            "reason": "Mom is asking a question that requires Sayam's reply, so it is indeed waiting on him."
+          },
+          {
+            "caseId": "vibes-two-chats",
+            "chatId": "c2",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I will call you after lunch",
+            "verdict": "pass",
+            "reason": "The text 'I will call you after lunch' is a clear promise made by Sayam."
+          },
+          {
+            "caseId": "question-availability",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Could you share your availability for a call this week?",
+            "verdict": "pass",
+            "reason": "The recruiter asks for Sayam's availability, which requires Sayam to reply."
+          },
+          {
+            "caseId": "question-hinglish",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Sayam, kal ki meeting ka time kya hai?",
+            "verdict": "pass",
+            "reason": "The sender asks Sayam for the meeting time, requiring his reply."
+          },
+          {
+            "caseId": "question-group-to-sayam",
+            "chatId": "c1",
+            "messageId": "m2",
+            "kind": "waiting_on_me",
+            "quote": "Sayam, can you share the deploy notes before 4?",
+            "verdict": "pass",
+            "reason": "The message is a direct request for Sayam to provide deploy notes, so it is waiting on him."
+          },
+          {
+            "caseId": "question-with-ill",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "I'll be in office tomorrow, can you bring the charger?",
+            "verdict": "pass",
+            "reason": "The request asks Sayam to bring the charger, so it correctly flags as waiting on him."
+          },
+          {
+            "caseId": "request-please",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Please send me the release notes by 5",
+            "verdict": "pass",
+            "reason": "The PM is asking Sayam to send release notes, so it is indeed waiting on him"
+          },
+          {
+            "caseId": "request-need-review",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Need your review on PR 214 before we merge",
+            "verdict": "pass",
+            "reason": "The request for a PR review is directed at Sayam, so it is waiting on him."
+          },
+          {
+            "caseId": "request-hinglish",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Bhai ek baar PR dekh lena jab free ho",
+            "verdict": "pass",
+            "reason": "The sender asks Sayam to look at a PR when free, which is a clear request awaiting Sayam's action."
+          },
+          {
+            "caseId": "promise-reply-to-request",
+            "chatId": "c1",
+            "messageId": "m2",
+            "kind": "i_promised",
+            "quote": "I'll look at it after standup",
+            "verdict": "pass",
+            "reason": "The statement \"I'll look at it after standup\" is a clear commitment to act later, constituting a promise."
+          },
+          {
+            "caseId": "promise-hinglish-bhej-dunga",
+            "chatId": "c1",
+            "messageId": "m2",
+            "kind": "i_promised",
+            "quote": "Kal tak bhej dunga",
+            "verdict": "pass",
+            "reason": "The text 'Kal tak bhej dunga' is a clear promise to send something by tomorrow."
+          },
+          {
+            "caseId": "promise-hinglish-call",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "Main kal call karta hoon, abhi meeting mein hoon",
+            "verdict": "pass",
+            "reason": "The message explicitly says \"I will call tomorrow,\" indicating a clear promise."
+          },
+          {
+            "caseId": "promise-theirs-not-mine",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I'll call you at 6",
+            "verdict": "pass",
+            "reason": "The text \"I'll call you at 6\" is a clear commitment, qualifying as a promise."
+          },
+          {
+            "caseId": "rhetorical-question",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Why is Bengaluru traffic like this every single day?",
+            "verdict": "pass",
+            "reason": "The other participant asks a question, expecting Sayam's reply, so it is indeed waiting on Sayam."
+          },
+          {
+            "caseId": "mixed-three-chats",
+            "chatId": "c1",
+            "messageId": "m1",
+            "kind": "waiting_on_me",
+            "quote": "Did you check the login bug on staging?",
+            "verdict": "pass",
+            "reason": "The client asks if Sayam has checked the bug, which requires Sayam's response."
+          },
+          {
+            "caseId": "mixed-three-chats",
+            "chatId": "c2",
+            "messageId": "m1",
+            "kind": "i_promised",
+            "quote": "I will review your resume this weekend",
+            "verdict": "pass",
+            "reason": "The text explicitly states a commitment to review the resume, which is a promise."
+          }
+        ],
+        "calibration": {
+          "judged": 18,
+          "agreed": 17,
+          "notJudged": 0,
+          "judgePassedLabelsRejected": 1,
+          "judgeFailedLabelsAccepted": 0,
+          "disagreements": [
+            {
+              "caseId": "rhetorical-question",
+              "chatId": "c1",
+              "messageId": "m1",
+              "kind": "waiting_on_me",
+              "quote": "Why is Bengaluru traffic like this every single day?",
+              "verdict": "pass",
+              "reason": "The other participant asks a question, expecting Sayam's reply, so it is indeed waiting on Sayam.",
+              "labelsSay": "incorrect"
+            }
+          ]
+        },
+        "trace": [
+          {
+            "kind": "model",
+            "label": "judge vibes-question-invoice c1/m1",
+            "ms": 2792,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 41,
+              "thinkingTokens": 92
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "judge vibes-promise-deck c1/m1",
+            "ms": 3700,
+            "usage": {
+              "inputTokens": 344,
+              "outputTokens": 43,
+              "thinkingTokens": 60
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge vibes-two-chats c1/m1",
+            "ms": 4319,
+            "usage": {
+              "inputTokens": 345,
+              "outputTokens": 42,
+              "thinkingTokens": 76
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge vibes-two-chats c2/m1",
+            "ms": 760,
+            "usage": {
+              "inputTokens": 344,
+              "outputTokens": 41,
+              "thinkingTokens": 63
+            }
+          },
+          {
+            "kind": "model",
+            "label": "judge question-availability c1/m1",
+            "ms": 3778,
+            "usage": {
+              "inputTokens": 360,
+              "outputTokens": 39,
+              "thinkingTokens": 82
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge question-hinglish c1/m1",
+            "ms": 2778,
+            "usage": {
+              "inputTokens": 354,
+              "outputTokens": 36,
+              "thinkingTokens": 99
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "judge question-group-to-sayam c1/m2",
+            "ms": 4580,
+            "usage": {
+              "inputTokens": 401,
+              "outputTokens": 43,
+              "thinkingTokens": 82
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "judge question-with-ill c1/m1",
+            "ms": 3587,
+            "usage": {
+              "inputTokens": 356,
+              "outputTokens": 41,
+              "thinkingTokens": 109
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge request-please c1/m1",
+            "ms": 4897,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 40,
+              "thinkingTokens": 112
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "judge request-need-review c1/m1",
+            "ms": 3263,
+            "usage": {
+              "inputTokens": 354,
+              "outputTokens": 41,
+              "thinkingTokens": 81
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "judge request-hinglish c1/m1",
+            "ms": 3701,
+            "usage": {
+              "inputTokens": 354,
+              "outputTokens": 46,
+              "thinkingTokens": 111
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-reply-to-request c1/m2",
+            "ms": 2779,
+            "usage": {
+              "inputTokens": 384,
+              "outputTokens": 46,
+              "thinkingTokens": 64
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-hinglish-bhej-dunga c1/m2",
+            "ms": 5043,
+            "usage": {
+              "inputTokens": 381,
+              "outputTokens": 42,
+              "thinkingTokens": 62
+            },
+            "waitedMs": 4000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-hinglish-call c1/m1",
+            "ms": 2877,
+            "usage": {
+              "inputTokens": 357,
+              "outputTokens": 37,
+              "thinkingTokens": 107
+            },
+            "waitedMs": 2000
+          },
+          {
+            "kind": "model",
+            "label": "judge promise-theirs-not-mine c1/m1",
+            "ms": 3799,
+            "usage": {
+              "inputTokens": 383,
+              "outputTokens": 42,
+              "thinkingTokens": 76
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge rhetorical-question c1/m1",
+            "ms": 3981,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 44,
+              "thinkingTokens": 149
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge mixed-three-chats c1/m1",
+            "ms": 3765,
+            "usage": {
+              "inputTokens": 353,
+              "outputTokens": 49,
+              "thinkingTokens": 83
+            },
+            "waitedMs": 3000
+          },
+          {
+            "kind": "model",
+            "label": "judge mixed-three-chats c2/m1",
+            "ms": 3718,
+            "usage": {
+              "inputTokens": 346,
+              "outputTokens": 38,
+              "thinkingTokens": 76
+            },
+            "waitedMs": 3000
+          }
+        ]
+      }
+    }
+  ]
+}
