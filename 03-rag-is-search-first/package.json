@@ -1,0 +1,12 @@
+{
+  "name": "rag-is-search-first",
+  "private": true,
+  "type": "module",
+  "description": "A glossary lookup scored as search before any model writes a word: five retrievers against 24 labelled posts, then a model rewrite for three of them, with every answer traced back to what retrieval found. Companion to the Shipping with AI article 'RAG is a search problem first'.",
+  "engines": { "node": ">=23.6" },
+  "scripts": {
+    "eval": "node --env-file-if-exists=.env src/run.ts",
+    "eval:offline": "node src/run.ts --offline",
+    "test": "node --test \"test/**/*.test.ts\""
+  }
+}

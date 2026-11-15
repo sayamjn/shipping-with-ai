@@ -1,0 +1,24 @@
+{"id":"e1","tags":["exact"],"text":"Try our cold coffee this weekend.","required":["cold coffee"],"forbidden":[],"notes":"The phrase is in the glossary as written."}
+{"id":"e2","tags":["exact"],"text":"Masala tea and a sandwich, ready in five minutes.","required":["masala tea","sandwich"],"forbidden":[],"notes":"Two entries, both as written."}
+{"id":"e3","tags":["exact"],"text":"Our menu now has a waffle and milkshake combo.","required":["menu","waffle","milkshake"],"forbidden":[],"notes":"Three single word entries."}
+{"id":"e4","tags":["exact"],"text":"Table booking opens at noon on Saturday.","required":["table booking"],"forbidden":[],"notes":"A two word entry."}
+{"id":"e5","tags":["exact"],"text":"Home delivery is free on every order above 500 rupees.","required":["home delivery","order"],"forbidden":[],"notes":"Order here is a food order, the sense the glossary means."}
+{"id":"e6","tags":["exact"],"text":"New opening hours from Monday: 8 am to 10 pm.","required":["opening hours"],"forbidden":[],"notes":"A two word entry."}
+{"id":"p1","tags":["plural"],"text":"Fresh cookies come out of the oven at four.","required":["cookie"],"forbidden":[],"notes":"Plural of a glossary word."}
+{"id":"p2","tags":["plural"],"text":"We baked three new cakes for the weekend.","required":["bake","cake"],"forbidden":[],"notes":"Past tense and plural."}
+{"id":"p3","tags":["plural"],"text":"Waffles and milkshakes are half price on Tuesday.","required":["waffle","milkshake"],"forbidden":[],"notes":"Two plurals."}
+{"id":"p4","tags":["plural"],"text":"All sandwiches are made with bread we bake here.","required":["sandwich","bread","bake"],"forbidden":[],"notes":"A plural ending in es, plus two exact words."}
+{"id":"ph1","tags":["phrase"],"text":"The chocolate cake is back on the menu.","required":["chocolate cake","menu"],"forbidden":[],"notes":"The longer phrase should win over cake on its own."}
+{"id":"ph2","tags":["phrase","plural"],"text":"Our weekend offer: two coffees for the price of one.","required":["weekend offer","coffee"],"forbidden":[],"notes":"A phrase plus a plural."}
+{"id":"ph3","tags":["phrase"],"text":"Planning a birthday party? Ask about our discount.","required":["birthday party","discount"],"forbidden":[],"notes":"A phrase plus a single word."}
+{"id":"ph4","tags":["phrase"],"text":"Masala tea is our most loved order.","required":["masala tea","order"],"forbidden":[],"notes":"The longer phrase should win over tea on its own."}
+{"id":"t1","tags":["typo"],"text":"Our chocolte cake sells out by noon.","required":["chocolate cake"],"forbidden":[],"notes":"One letter missing inside a phrase."}
+{"id":"t2","tags":["typo"],"text":"Free home delivry on weekends.","required":["home delivery"],"forbidden":[],"notes":"One letter missing inside a phrase."}
+{"id":"t3","tags":["typo"],"text":"Try the new milkshak flavours.","required":["milkshake"],"forbidden":[],"notes":"Last letter missing."}
+{"id":"t4","tags":["typo"],"text":"Check our openning hours before you visit.","required":["opening hours"],"forbidden":[],"notes":"One letter doubled."}
+{"id":"s1","tags":["synonym"],"text":"Fresh biscuits with every tea.","required":["cookie","tea"],"forbidden":[],"notes":"Biscuits means the glossary's cookie; nothing lexical can find that."}
+{"id":"s2","tags":["synonym"],"text":"Food to go is packed in paper bags.","required":["takeaway"],"forbidden":[],"notes":"To go means takeaway."}
+{"id":"s3","tags":["synonym"],"text":"Grab a latte and a slice of cake.","required":["coffee","cake"],"forbidden":[],"notes":"A latte is a coffee; cake is exact."}
+{"id":"d1","tags":["distractor"],"text":"Save the date: our anniversary is on the 12th.","required":[],"forbidden":["date"],"notes":"A calendar date, not the fruit the glossary means."}
+{"id":"d2","tags":["distractor"],"text":"We are rolling out new opening hours.","required":["opening hours"],"forbidden":["roll"],"notes":"Rolling out has nothing to do with a bread roll."}
+{"id":"d3","tags":["distractor"],"text":"Our new seats are in mint condition.","required":[],"forbidden":["mint"],"notes":"Mint condition, not the herb."}

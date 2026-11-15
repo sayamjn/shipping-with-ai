@@ -1,0 +1,3537 @@
+{
+  "model": "groq openai/gpt-oss-120b",
+  "startedAt": "2026-11-15T09:24:42.682Z",
+  "posts": 24,
+  "glossaryEntries": 25,
+  "system": "You write short social media posts for a café. The café has a house glossary of its own words. Rewrite the post in English, but use the glossary word in place of each glossary term, exactly as given. Keep everything else as it is. Reply with the rewritten post only.",
+  "retrieval": [
+    {
+      "retriever": "exact",
+      "totals": {
+        "posts": 24,
+        "complete": 10,
+        "needed": 36,
+        "found": 22,
+        "extra": 7,
+        "wrongSense": 2
+      },
+      "byTag": {
+        "exact": {
+          "posts": 6,
+          "complete": 6
+        },
+        "plural": {
+          "posts": 5,
+          "complete": 0
+        },
+        "phrase": {
+          "posts": 4,
+          "complete": 3
+        },
+        "typo": {
+          "posts": 4,
+          "complete": 0
+        },
+        "synonym": {
+          "posts": 3,
+          "complete": 0
+        },
+        "distractor": {
+          "posts": 3,
+          "complete": 1
+        }
+      },
+      "grades": [
+        {
+          "postId": "e1",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "coffee",
+            "cold coffee"
+          ],
+          "found": [
+            "cold coffee"
+          ],
+          "missed": [],
+          "extra": [
+            "coffee"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e2",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "tea",
+            "masala tea",
+            "sandwich"
+          ],
+          "found": [
+            "masala tea",
+            "sandwich"
+          ],
+          "missed": [],
+          "extra": [
+            "tea"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e3",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle",
+            "menu"
+          ],
+          "found": [
+            "menu",
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e4",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "table booking"
+          ],
+          "found": [
+            "table booking"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e5",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "home delivery",
+            "order"
+          ],
+          "found": [
+            "home delivery",
+            "order"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e6",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p1",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "cookie"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "p2",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "bake",
+            "cake"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "p3",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "waffle",
+            "milkshake"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "p4",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "bake",
+            "bread"
+          ],
+          "found": [
+            "bread",
+            "bake"
+          ],
+          "missed": [
+            "sandwich"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "ph1",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "cake",
+            "chocolate cake",
+            "menu"
+          ],
+          "found": [
+            "chocolate cake",
+            "menu"
+          ],
+          "missed": [],
+          "extra": [
+            "cake"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph2",
+          "tags": [
+            "phrase",
+            "plural"
+          ],
+          "retrieved": [
+            "weekend offer"
+          ],
+          "found": [
+            "weekend offer"
+          ],
+          "missed": [
+            "coffee"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "ph3",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "birthday party",
+            "discount"
+          ],
+          "found": [
+            "birthday party",
+            "discount"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph4",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "tea",
+            "masala tea",
+            "order"
+          ],
+          "found": [
+            "masala tea",
+            "order"
+          ],
+          "missed": [],
+          "extra": [
+            "tea"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t1",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "cake"
+          ],
+          "found": [],
+          "missed": [
+            "chocolate cake"
+          ],
+          "extra": [
+            "cake"
+          ],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "t2",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "home delivery"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "t3",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "milkshake"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "t4",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "opening hours"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s1",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "tea"
+          ],
+          "found": [
+            "tea"
+          ],
+          "missed": [
+            "cookie"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s2",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "takeaway"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s3",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "cake"
+          ],
+          "found": [
+            "cake"
+          ],
+          "missed": [
+            "coffee"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "d1",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "date"
+          ],
+          "found": [],
+          "missed": [],
+          "extra": [
+            "date"
+          ],
+          "wrongSense": [
+            "date"
+          ],
+          "complete": false
+        },
+        {
+          "postId": "d2",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "d3",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "mint"
+          ],
+          "found": [],
+          "missed": [],
+          "extra": [
+            "mint"
+          ],
+          "wrongSense": [
+            "mint"
+          ],
+          "complete": false
+        }
+      ]
+    },
+    {
+      "retriever": "normalised",
+      "totals": {
+        "posts": 24,
+        "complete": 14,
+        "needed": 36,
+        "found": 29,
+        "extra": 8,
+        "wrongSense": 3
+      },
+      "byTag": {
+        "exact": {
+          "posts": 6,
+          "complete": 6
+        },
+        "plural": {
+          "posts": 5,
+          "complete": 5
+        },
+        "phrase": {
+          "posts": 4,
+          "complete": 4
+        },
+        "typo": {
+          "posts": 4,
+          "complete": 0
+        },
+        "synonym": {
+          "posts": 3,
+          "complete": 0
+        },
+        "distractor": {
+          "posts": 3,
+          "complete": 0
+        }
+      },
+      "grades": [
+        {
+          "postId": "e1",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "coffee",
+            "cold coffee"
+          ],
+          "found": [
+            "cold coffee"
+          ],
+          "missed": [],
+          "extra": [
+            "coffee"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e2",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "tea",
+            "masala tea",
+            "sandwich"
+          ],
+          "found": [
+            "masala tea",
+            "sandwich"
+          ],
+          "missed": [],
+          "extra": [
+            "tea"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e3",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle",
+            "menu"
+          ],
+          "found": [
+            "menu",
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e4",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "table booking"
+          ],
+          "found": [
+            "table booking"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e5",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "home delivery",
+            "order"
+          ],
+          "found": [
+            "home delivery",
+            "order"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e6",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p1",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "cookie"
+          ],
+          "found": [
+            "cookie"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p2",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "cake",
+            "bake"
+          ],
+          "found": [
+            "bake",
+            "cake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p3",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle"
+          ],
+          "found": [
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p4",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "sandwich",
+            "bake",
+            "bread"
+          ],
+          "found": [
+            "sandwich",
+            "bread",
+            "bake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph1",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "cake",
+            "chocolate cake",
+            "menu"
+          ],
+          "found": [
+            "chocolate cake",
+            "menu"
+          ],
+          "missed": [],
+          "extra": [
+            "cake"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph2",
+          "tags": [
+            "phrase",
+            "plural"
+          ],
+          "retrieved": [
+            "coffee",
+            "weekend offer"
+          ],
+          "found": [
+            "weekend offer",
+            "coffee"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph3",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "birthday party",
+            "discount"
+          ],
+          "found": [
+            "birthday party",
+            "discount"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph4",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "tea",
+            "masala tea",
+            "order"
+          ],
+          "found": [
+            "masala tea",
+            "order"
+          ],
+          "missed": [],
+          "extra": [
+            "tea"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t1",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "cake"
+          ],
+          "found": [],
+          "missed": [
+            "chocolate cake"
+          ],
+          "extra": [
+            "cake"
+          ],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "t2",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "home delivery"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "t3",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "milkshake"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "t4",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "opening hours"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s1",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "tea"
+          ],
+          "found": [
+            "tea"
+          ],
+          "missed": [
+            "cookie"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s2",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "takeaway"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s3",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "cake"
+          ],
+          "found": [
+            "cake"
+          ],
+          "missed": [
+            "coffee"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "d1",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "date"
+          ],
+          "found": [],
+          "missed": [],
+          "extra": [
+            "date"
+          ],
+          "wrongSense": [
+            "date"
+          ],
+          "complete": false
+        },
+        {
+          "postId": "d2",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "opening hours",
+            "roll"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [
+            "roll"
+          ],
+          "wrongSense": [
+            "roll"
+          ],
+          "complete": false
+        },
+        {
+          "postId": "d3",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "mint"
+          ],
+          "found": [],
+          "missed": [],
+          "extra": [
+            "mint"
+          ],
+          "wrongSense": [
+            "mint"
+          ],
+          "complete": false
+        }
+      ]
+    },
+    {
+      "retriever": "fuzzy",
+      "totals": {
+        "posts": 24,
+        "complete": 18,
+        "needed": 36,
+        "found": 31,
+        "extra": 7,
+        "wrongSense": 2
+      },
+      "byTag": {
+        "exact": {
+          "posts": 6,
+          "complete": 6
+        },
+        "plural": {
+          "posts": 5,
+          "complete": 4
+        },
+        "phrase": {
+          "posts": 4,
+          "complete": 4
+        },
+        "typo": {
+          "posts": 4,
+          "complete": 4
+        },
+        "synonym": {
+          "posts": 3,
+          "complete": 0
+        },
+        "distractor": {
+          "posts": 3,
+          "complete": 1
+        }
+      },
+      "grades": [
+        {
+          "postId": "e1",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "coffee",
+            "cold coffee"
+          ],
+          "found": [
+            "cold coffee"
+          ],
+          "missed": [],
+          "extra": [
+            "coffee"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e2",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "tea",
+            "masala tea",
+            "sandwich"
+          ],
+          "found": [
+            "masala tea",
+            "sandwich"
+          ],
+          "missed": [],
+          "extra": [
+            "tea"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e3",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle",
+            "menu"
+          ],
+          "found": [
+            "menu",
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e4",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "table booking"
+          ],
+          "found": [
+            "table booking"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e5",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "home delivery",
+            "order"
+          ],
+          "found": [
+            "home delivery",
+            "order"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e6",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p1",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "cookie"
+          ],
+          "found": [
+            "cookie"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p2",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "bake",
+            "cake"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "p3",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle"
+          ],
+          "found": [
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p4",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "sandwich",
+            "bake",
+            "bread"
+          ],
+          "found": [
+            "sandwich",
+            "bread",
+            "bake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph1",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "cake",
+            "chocolate cake",
+            "menu"
+          ],
+          "found": [
+            "chocolate cake",
+            "menu"
+          ],
+          "missed": [],
+          "extra": [
+            "cake"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph2",
+          "tags": [
+            "phrase",
+            "plural"
+          ],
+          "retrieved": [
+            "coffee",
+            "weekend offer"
+          ],
+          "found": [
+            "weekend offer",
+            "coffee"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph3",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "birthday party",
+            "discount"
+          ],
+          "found": [
+            "birthday party",
+            "discount"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph4",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "tea",
+            "masala tea",
+            "order"
+          ],
+          "found": [
+            "masala tea",
+            "order"
+          ],
+          "missed": [],
+          "extra": [
+            "tea"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t1",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "cake",
+            "chocolate cake"
+          ],
+          "found": [
+            "chocolate cake"
+          ],
+          "missed": [],
+          "extra": [
+            "cake"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t2",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "home delivery"
+          ],
+          "found": [
+            "home delivery"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t3",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "milkshake"
+          ],
+          "found": [
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t4",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "s1",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "tea"
+          ],
+          "found": [
+            "tea"
+          ],
+          "missed": [
+            "cookie"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s2",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "takeaway"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s3",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "cake"
+          ],
+          "found": [
+            "cake"
+          ],
+          "missed": [
+            "coffee"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "d1",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "date"
+          ],
+          "found": [],
+          "missed": [],
+          "extra": [
+            "date"
+          ],
+          "wrongSense": [
+            "date"
+          ],
+          "complete": false
+        },
+        {
+          "postId": "d2",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "d3",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "mint"
+          ],
+          "found": [],
+          "missed": [],
+          "extra": [
+            "mint"
+          ],
+          "wrongSense": [
+            "mint"
+          ],
+          "complete": false
+        }
+      ]
+    },
+    {
+      "retriever": "normalised + fuzzy",
+      "totals": {
+        "posts": 24,
+        "complete": 18,
+        "needed": 36,
+        "found": 33,
+        "extra": 8,
+        "wrongSense": 3
+      },
+      "byTag": {
+        "exact": {
+          "posts": 6,
+          "complete": 6
+        },
+        "plural": {
+          "posts": 5,
+          "complete": 5
+        },
+        "phrase": {
+          "posts": 4,
+          "complete": 4
+        },
+        "typo": {
+          "posts": 4,
+          "complete": 4
+        },
+        "synonym": {
+          "posts": 3,
+          "complete": 0
+        },
+        "distractor": {
+          "posts": 3,
+          "complete": 0
+        }
+      },
+      "grades": [
+        {
+          "postId": "e1",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "coffee",
+            "cold coffee"
+          ],
+          "found": [
+            "cold coffee"
+          ],
+          "missed": [],
+          "extra": [
+            "coffee"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e2",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "tea",
+            "masala tea",
+            "sandwich"
+          ],
+          "found": [
+            "masala tea",
+            "sandwich"
+          ],
+          "missed": [],
+          "extra": [
+            "tea"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e3",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle",
+            "menu"
+          ],
+          "found": [
+            "menu",
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e4",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "table booking"
+          ],
+          "found": [
+            "table booking"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e5",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "home delivery",
+            "order"
+          ],
+          "found": [
+            "home delivery",
+            "order"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e6",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p1",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "cookie"
+          ],
+          "found": [
+            "cookie"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p2",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "cake",
+            "bake"
+          ],
+          "found": [
+            "bake",
+            "cake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p3",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle"
+          ],
+          "found": [
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p4",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "sandwich",
+            "bake",
+            "bread"
+          ],
+          "found": [
+            "sandwich",
+            "bread",
+            "bake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph1",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "cake",
+            "chocolate cake",
+            "menu"
+          ],
+          "found": [
+            "chocolate cake",
+            "menu"
+          ],
+          "missed": [],
+          "extra": [
+            "cake"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph2",
+          "tags": [
+            "phrase",
+            "plural"
+          ],
+          "retrieved": [
+            "coffee",
+            "weekend offer"
+          ],
+          "found": [
+            "weekend offer",
+            "coffee"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph3",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "birthday party",
+            "discount"
+          ],
+          "found": [
+            "birthday party",
+            "discount"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph4",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "tea",
+            "masala tea",
+            "order"
+          ],
+          "found": [
+            "masala tea",
+            "order"
+          ],
+          "missed": [],
+          "extra": [
+            "tea"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t1",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "cake",
+            "chocolate cake"
+          ],
+          "found": [
+            "chocolate cake"
+          ],
+          "missed": [],
+          "extra": [
+            "cake"
+          ],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t2",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "home delivery"
+          ],
+          "found": [
+            "home delivery"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t3",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "milkshake"
+          ],
+          "found": [
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t4",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "s1",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "tea"
+          ],
+          "found": [
+            "tea"
+          ],
+          "missed": [
+            "cookie"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s2",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [
+            "takeaway"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "s3",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "cake"
+          ],
+          "found": [
+            "cake"
+          ],
+          "missed": [
+            "coffee"
+          ],
+          "extra": [],
+          "wrongSense": [],
+          "complete": false
+        },
+        {
+          "postId": "d1",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "date"
+          ],
+          "found": [],
+          "missed": [],
+          "extra": [
+            "date"
+          ],
+          "wrongSense": [
+            "date"
+          ],
+          "complete": false
+        },
+        {
+          "postId": "d2",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "opening hours",
+            "roll"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [
+            "roll"
+          ],
+          "wrongSense": [
+            "roll"
+          ],
+          "complete": false
+        },
+        {
+          "postId": "d3",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "mint"
+          ],
+          "found": [],
+          "missed": [],
+          "extra": [
+            "mint"
+          ],
+          "wrongSense": [
+            "mint"
+          ],
+          "complete": false
+        }
+      ]
+    },
+    {
+      "retriever": "oracle (labels)",
+      "totals": {
+        "posts": 24,
+        "complete": 24,
+        "needed": 36,
+        "found": 36,
+        "extra": 0,
+        "wrongSense": 0
+      },
+      "byTag": {
+        "exact": {
+          "posts": 6,
+          "complete": 6
+        },
+        "plural": {
+          "posts": 5,
+          "complete": 5
+        },
+        "phrase": {
+          "posts": 4,
+          "complete": 4
+        },
+        "typo": {
+          "posts": 4,
+          "complete": 4
+        },
+        "synonym": {
+          "posts": 3,
+          "complete": 3
+        },
+        "distractor": {
+          "posts": 3,
+          "complete": 3
+        }
+      },
+      "grades": [
+        {
+          "postId": "e1",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "cold coffee"
+          ],
+          "found": [
+            "cold coffee"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e2",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "masala tea",
+            "sandwich"
+          ],
+          "found": [
+            "masala tea",
+            "sandwich"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e3",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle",
+            "menu"
+          ],
+          "found": [
+            "menu",
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e4",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "table booking"
+          ],
+          "found": [
+            "table booking"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e5",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "home delivery",
+            "order"
+          ],
+          "found": [
+            "home delivery",
+            "order"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "e6",
+          "tags": [
+            "exact"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p1",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "cookie"
+          ],
+          "found": [
+            "cookie"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p2",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "cake",
+            "bake"
+          ],
+          "found": [
+            "bake",
+            "cake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p3",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "milkshake",
+            "waffle"
+          ],
+          "found": [
+            "waffle",
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "p4",
+          "tags": [
+            "plural"
+          ],
+          "retrieved": [
+            "sandwich",
+            "bake",
+            "bread"
+          ],
+          "found": [
+            "sandwich",
+            "bread",
+            "bake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph1",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "chocolate cake",
+            "menu"
+          ],
+          "found": [
+            "chocolate cake",
+            "menu"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph2",
+          "tags": [
+            "phrase",
+            "plural"
+          ],
+          "retrieved": [
+            "coffee",
+            "weekend offer"
+          ],
+          "found": [
+            "weekend offer",
+            "coffee"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph3",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "birthday party",
+            "discount"
+          ],
+          "found": [
+            "birthday party",
+            "discount"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "ph4",
+          "tags": [
+            "phrase"
+          ],
+          "retrieved": [
+            "masala tea",
+            "order"
+          ],
+          "found": [
+            "masala tea",
+            "order"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t1",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "chocolate cake"
+          ],
+          "found": [
+            "chocolate cake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t2",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "home delivery"
+          ],
+          "found": [
+            "home delivery"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t3",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "milkshake"
+          ],
+          "found": [
+            "milkshake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "t4",
+          "tags": [
+            "typo"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "s1",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "tea",
+            "cookie"
+          ],
+          "found": [
+            "cookie",
+            "tea"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "s2",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "takeaway"
+          ],
+          "found": [
+            "takeaway"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "s3",
+          "tags": [
+            "synonym"
+          ],
+          "retrieved": [
+            "coffee",
+            "cake"
+          ],
+          "found": [
+            "coffee",
+            "cake"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "d1",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "d2",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [
+            "opening hours"
+          ],
+          "found": [
+            "opening hours"
+          ],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        },
+        {
+          "postId": "d3",
+          "tags": [
+            "distractor"
+          ],
+          "retrieved": [],
+          "found": [],
+          "missed": [],
+          "extra": [],
+          "wrongSense": [],
+          "complete": true
+        }
+      ]
+    }
+  ],
+  "answers": [
+    {
+      "retriever": "exact",
+      "grades": [
+        {
+          "postId": "e1",
+          "output": "Try our frosk mavi this weekend.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e2",
+          "output": "rinta chelu and a pamtol, ready in five minutes.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e3",
+          "output": "Our listo now has a velfa and sheko combo.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e4",
+          "output": "zemi pakt opens at noon on Saturday.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e5",
+          "output": "dovra velt is free on every tekla above 500 rupees.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e6",
+          "output": "New kalo vint from Monday: 8 am to 10 pm.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p1",
+          "output": "Fresh cookies come out of the oven at four.",
+          "missingWords": [
+            "dorpa"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "p2",
+          "output": "We baked three new cakes for the weekend.",
+          "missingWords": [
+            "horpa",
+            "bunsa"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "p3",
+          "output": "Waffles and milkshakes are half price on Tuesday.",
+          "missingWords": [
+            "velfa",
+            "sheko"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "p4",
+          "output": "All sandwiches are made with paovi we horpa here.",
+          "missingWords": [
+            "pamtol"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "ph1",
+          "output": "The kokrel bunsa is back on the listo.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph2",
+          "output": "Our sarno deel: two coffees for the price of one.",
+          "missingWords": [
+            "mavi"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "ph3",
+          "output": "Planning a vorta fest? Ask about our katro.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph4",
+          "output": "rinta chelu is our most loved tekla.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t1",
+          "output": "Our chocolte bunsa sells out by noon.",
+          "missingWords": [
+            "kokrel bunsa"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "t2",
+          "output": "Free home delivry on weekends.",
+          "missingWords": [
+            "dovra velt"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "t3",
+          "output": "Try the new milkshak flavours.",
+          "missingWords": [
+            "sheko"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "t4",
+          "output": "Check our openning hours before you visit.",
+          "missingWords": [
+            "kalo vint"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "s1",
+          "output": "Fresh biscuits with every chelu.",
+          "missingWords": [
+            "dorpa"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "s2",
+          "output": "Food to go is packed in paper bags.",
+          "missingWords": [
+            "lufta"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "s3",
+          "output": "Grab a latte and a slice of bunsa.",
+          "missingWords": [
+            "mavi"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "d1",
+          "output": "Save the zimbo: our anniversary is on the 12th.",
+          "missingWords": [],
+          "wrongWords": [
+            "zimbo"
+          ],
+          "pass": false
+        },
+        {
+          "postId": "d2",
+          "output": "We are rolling out new kalo vint.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "d3",
+          "output": "Our new seats are in lerpa condition.",
+          "missingWords": [],
+          "wrongWords": [
+            "lerpa"
+          ],
+          "pass": false
+        }
+      ],
+      "steps": [
+        {
+          "ms": 4014,
+          "usage": {
+            "inputTokens": 164,
+            "outputTokens": 19,
+            "thinkingTokens": 134
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 755,
+          "usage": {
+            "inputTokens": 176,
+            "outputTokens": 24,
+            "thinkingTokens": 129
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 4016,
+          "usage": {
+            "inputTokens": 171,
+            "outputTokens": 22,
+            "thinkingTokens": 101
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3887,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 19,
+            "thinkingTokens": 83
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 4117,
+          "usage": {
+            "inputTokens": 169,
+            "outputTokens": 26,
+            "thinkingTokens": 203
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3457,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 24,
+            "thinkingTokens": 66
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 648,
+          "usage": {
+            "inputTokens": 154,
+            "outputTokens": 19,
+            "thinkingTokens": 87
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 3705,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 18,
+            "thinkingTokens": 73
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3482,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 21,
+            "thinkingTokens": 87
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3866,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 21,
+            "thinkingTokens": 118
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3878,
+          "usage": {
+            "inputTokens": 170,
+            "outputTokens": 20,
+            "thinkingTokens": 139
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3669,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 22,
+            "thinkingTokens": 106
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3763,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 21,
+            "thinkingTokens": 94
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3835,
+          "usage": {
+            "inputTokens": 172,
+            "outputTokens": 20,
+            "thinkingTokens": 159
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3646,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 19,
+            "thinkingTokens": 65
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3691,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 85
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3689,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 184
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3749,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 18,
+            "thinkingTokens": 145
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3635,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 16,
+            "thinkingTokens": 67
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3444,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 18,
+            "thinkingTokens": 74
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3597,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 19,
+            "thinkingTokens": 44
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3662,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 23,
+            "thinkingTokens": 74
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3534,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 18,
+            "thinkingTokens": 44
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3819,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 86
+          },
+          "waitedMs": 3000
+        }
+      ]
+    },
+    {
+      "retriever": "normalised + fuzzy",
+      "grades": [
+        {
+          "postId": "e1",
+          "output": "Try our frosk mavi this weekend.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e2",
+          "output": "Rinta chelu and a pamtol, ready in five minutes.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e3",
+          "output": "Our listo now has a velfa and sheko combo.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e4",
+          "output": "zemi pakt opens at noon on Saturday.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e5",
+          "output": "dovra velt is free on every tekla above 500 rupees.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e6",
+          "output": "New kalo vint from Monday: 8 am to 10 pm.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p1",
+          "output": "Fresh dorpa come out of the oven at four.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p2",
+          "output": "We horpa three new bunsa for the weekend.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p3",
+          "output": "velfa and sheko are half price on Tuesday.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p4",
+          "output": "All pamtol are made with paovi we horpa here.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph1",
+          "output": "The kokrel bunsa is back on the listo.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph2",
+          "output": "Our sarno deel: two mavi for the price of one.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph3",
+          "output": "Planning a vorta fest? Ask about our katro.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph4",
+          "output": "rinta chelu is our most loved tekla.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t1",
+          "output": "Our kokrel bunsa sells out by noon.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t2",
+          "output": "Free dovra velt on weekends.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t3",
+          "output": "Try the new sheko flavours.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t4",
+          "output": "Check our kalo vint before you visit.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "s1",
+          "output": "Fresh biscuits with every chelu.",
+          "missingWords": [
+            "dorpa"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "s2",
+          "output": "Food to go is packed in paper bags.",
+          "missingWords": [
+            "lufta"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "s3",
+          "output": "Grab a latte and a slice of bunsa.",
+          "missingWords": [
+            "mavi"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "d1",
+          "output": "Save the zimbo: our anniversary is on the 12th.",
+          "missingWords": [],
+          "wrongWords": [
+            "zimbo"
+          ],
+          "pass": false
+        },
+        {
+          "postId": "d2",
+          "output": "We are rolling out new kalo vint.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "d3",
+          "output": "Our new seats are in lerpa condition.",
+          "missingWords": [],
+          "wrongWords": [
+            "lerpa"
+          ],
+          "pass": false
+        }
+      ],
+      "steps": [
+        {
+          "ms": 3751,
+          "usage": {
+            "inputTokens": 164,
+            "outputTokens": 19,
+            "thinkingTokens": 91
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3671,
+          "usage": {
+            "inputTokens": 176,
+            "outputTokens": 24,
+            "thinkingTokens": 176
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3697,
+          "usage": {
+            "inputTokens": 171,
+            "outputTokens": 22,
+            "thinkingTokens": 79
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3565,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 19,
+            "thinkingTokens": 135
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3956,
+          "usage": {
+            "inputTokens": 169,
+            "outputTokens": 26,
+            "thinkingTokens": 184
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3620,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 24,
+            "thinkingTokens": 85
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3503,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 20,
+            "thinkingTokens": 99
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3717,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 86
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 4099,
+          "usage": {
+            "inputTokens": 167,
+            "outputTokens": 21,
+            "thinkingTokens": 197
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3964,
+          "usage": {
+            "inputTokens": 170,
+            "outputTokens": 23,
+            "thinkingTokens": 205
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 404,
+          "usage": {
+            "inputTokens": 170,
+            "outputTokens": 20,
+            "thinkingTokens": 74
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 3790,
+          "usage": {
+            "inputTokens": 167,
+            "outputTokens": 23,
+            "thinkingTokens": 133
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3815,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 21,
+            "thinkingTokens": 129
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3759,
+          "usage": {
+            "inputTokens": 172,
+            "outputTokens": 20,
+            "thinkingTokens": 144
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3790,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 19,
+            "thinkingTokens": 159
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3804,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 17,
+            "thinkingTokens": 202
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 4276,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 16,
+            "thinkingTokens": 286
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3885,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 18,
+            "thinkingTokens": 156
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 475,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 16,
+            "thinkingTokens": 67
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 3705,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 18,
+            "thinkingTokens": 49
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3559,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 19,
+            "thinkingTokens": 75
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3665,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 23,
+            "thinkingTokens": 66
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3970,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 18,
+            "thinkingTokens": 220
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3611,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 72
+          },
+          "waitedMs": 3000
+        }
+      ]
+    },
+    {
+      "retriever": "oracle (labels)",
+      "grades": [
+        {
+          "postId": "e1",
+          "output": "Try our frosk mavi this weekend.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e2",
+          "output": "rinta chelu and a pamtol, ready in five minutes.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e3",
+          "output": "Our listo now has a velfa and sheko combo.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e4",
+          "output": "zemi pakt opens at noon on Saturday.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "e5",
+          "output": "davra velt is free on every tekla above 500 rupees.",
+          "missingWords": [
+            "dovra velt"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "e6",
+          "output": "New kalo vint from Monday: 8 am to 10 pm.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p1",
+          "output": "Fresh dorpa come out of the oven at four.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p2",
+          "output": "We horpa three new bunsa for the weekend.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p3",
+          "output": "velfa and sheko are half price on Tuesday.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "p4",
+          "output": "All pamtol are made with paovi we horpa here.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph1",
+          "output": "The kokrel bunsa is back on the listo.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph2",
+          "output": "Our sarno deel: two mavi for the price of one.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph3",
+          "output": "Planning a vorta fest? Ask about our katro.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "ph4",
+          "output": "rinta chelu is our most loved tekla.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t1",
+          "output": "Our kokrel bunsa sells out by noon.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t2",
+          "output": "Free dovra velt on weekends.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t3",
+          "output": "Try the new sheko flavours.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "t4",
+          "output": "Check our kalo vint before you visit.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "s1",
+          "output": "Fresh biscuits with every chelu.",
+          "missingWords": [
+            "dorpa"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "s2",
+          "output": "Food to go is packed in paper bags.",
+          "missingWords": [
+            "lufta"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "s3",
+          "output": "Grab a latte and a slice of bunsa.",
+          "missingWords": [
+            "mavi"
+          ],
+          "wrongWords": [],
+          "pass": false
+        },
+        {
+          "postId": "d1",
+          "output": "Save the date: our anniversary is on the 12th.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "d2",
+          "output": "We are rolling out new kalo vint.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        },
+        {
+          "postId": "d3",
+          "output": "Our new seats are in mint condition.",
+          "missingWords": [],
+          "wrongWords": [],
+          "pass": true
+        }
+      ],
+      "steps": [
+        {
+          "ms": 3477,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 19,
+            "thinkingTokens": 84
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 4183,
+          "usage": {
+            "inputTokens": 170,
+            "outputTokens": 24,
+            "thinkingTokens": 155
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3770,
+          "usage": {
+            "inputTokens": 171,
+            "outputTokens": 22,
+            "thinkingTokens": 89
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 629,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 19,
+            "thinkingTokens": 133
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 3950,
+          "usage": {
+            "inputTokens": 169,
+            "outputTokens": 25,
+            "thinkingTokens": 178
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3500,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 24,
+            "thinkingTokens": 94
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 4034,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 20,
+            "thinkingTokens": 301
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 4092,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 207
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 726,
+          "usage": {
+            "inputTokens": 167,
+            "outputTokens": 21,
+            "thinkingTokens": 208
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 4230,
+          "usage": {
+            "inputTokens": 170,
+            "outputTokens": 23,
+            "thinkingTokens": 345
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3465,
+          "usage": {
+            "inputTokens": 164,
+            "outputTokens": 20,
+            "thinkingTokens": 80
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 828,
+          "usage": {
+            "inputTokens": 167,
+            "outputTokens": 23,
+            "thinkingTokens": 170
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 3783,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 21,
+            "thinkingTokens": 104
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3958,
+          "usage": {
+            "inputTokens": 166,
+            "outputTokens": 20,
+            "thinkingTokens": 174
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 4172,
+          "usage": {
+            "inputTokens": 159,
+            "outputTokens": 19,
+            "thinkingTokens": 226
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 4052,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 17,
+            "thinkingTokens": 255
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 971,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 16,
+            "thinkingTokens": 247
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 3818,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 18,
+            "thinkingTokens": 148
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 428,
+          "usage": {
+            "inputTokens": 159,
+            "outputTokens": 16,
+            "thinkingTokens": 82
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 4319,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 18,
+            "thinkingTokens": 435
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3852,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 19,
+            "thinkingTokens": 189
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 663,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 22,
+            "thinkingTokens": 93
+          },
+          "waitedMs": 0
+        },
+        {
+          "ms": 3633,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 18,
+            "thinkingTokens": 72
+          },
+          "waitedMs": 3000
+        },
+        {
+          "ms": 3729,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 85
+          },
+          "waitedMs": 3000
+        }
+      ]
+    }
+  ]
+}
