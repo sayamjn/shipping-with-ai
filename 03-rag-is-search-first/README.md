@@ -31,7 +31,7 @@ Each run prints a retrieval table, the same results by tag, an answers table, a 
 - **Retrievers** (`src/retrievers.ts`, all plain code):
   - `exact`: the rule from my Nagamese glossary step (`glossaryInjector.js` in `sayamjn/Nagamese`). Lowercase the text, replace punctuation with spaces, keep words longer than one character, build every one to four word phrase, drop terms of two characters or fewer, the same fourteen stop words and pure numbers, then look each term up as an exact key. The real pipeline first rewrites the English into short simple sentences; this demo skips that step.
   - `normalised`: the same phrases, with a small hand written normaliser on both sides (plurals, `-ing`, `-ed`).
-  - `fuzzy`: character trigram similarity between each glossary term and every phrase of the same length in the post, matched at 0.75 or above.
+  - `fuzzy`: the Dice similarity of character trigrams (twice the shared trigrams over the total, with the text padded by spaces) between each glossary term and every phrase of the same length in the post, matched at 0.75 or above.
   - `normalised + fuzzy`: everything either of the two finds.
   - `oracle (labels)`: exactly the required entries. It is not a retriever; it shows what the model does when retrieval is perfect.
   - No embeddings: Groq has no embeddings endpoint, and the demo stays on one provider with no dependencies. Embeddings are the usual answer to the synonym posts; the article says so.
@@ -54,7 +54,7 @@ Each run prints a retrieval table, the same results by tag, an answers table, a 
 
 - 24 short synthetic posts and 25 entries, labelled by one person. They show how to score retrieval apart from the answer, not how any retriever performs on a real glossary.
 - The made up words make retrieval decisive by design: a missed entry cannot be guessed. With a real language, a model may know some words already, which hides retrieval misses rather than fixing them.
-- The normaliser and the fuzzy threshold are tuned by hand on these posts. Other words would need other rules; that is the point of having labels.
+- The normaliser and the fuzzy threshold are tuned by hand on the same 24 posts they are scored on; there is no held out set, so the combined retriever's numbers show the method, not how it does on new inputs. Other words would need other rules; that is the point of having labels.
 - The answer step tells the model to use every entry it is given, as my Nagamese prompt does. A prompt that let the model skip entries could avoid some wrong sense words and also skip right ones.
 - One model per run. A different model, or another run of the same one, can give different answers on the same retrieval.
 - `npm run eval:offline` uses a scripted stand-in, not a model: it replaces glossary terms only where they appear word for word, so it fails every plural, typo and synonym even when the oracle hands it the entry. Its numbers show the shape of the output and mean nothing about a real model.
