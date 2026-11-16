@@ -1,0 +1,36 @@
+{"id":"x1","tags":["exact"],"text":"Fresh brownie and a smoothie for the road.","required":["brownie","smoothie"],"forbidden":[],"notes":"Two single words as written."}
+{"id":"x2","tags":["exact"],"text":"Start your morning with an espresso and a croissant.","required":["espresso","croissant"],"forbidden":[],"notes":"Two single words as written."}
+{"id":"x3","tags":["exact"],"text":"Homemade lemonade is back for the summer.","required":["lemonade"],"forbidden":[],"notes":"One word as written."}
+{"id":"x4","tags":["exact"],"text":"Warm apple crumble with custard, only on Sundays.","required":["crumble"],"forbidden":[],"notes":"One word as written."}
+{"id":"p1","tags":["plural"],"text":"Blueberry muffins, fresh every morning.","required":["muffin"],"forbidden":[],"notes":"Plural."}
+{"id":"p2","tags":["plural"],"text":"Stacks of pancakes with maple syrup, all day.","required":["pancake"],"forbidden":[],"notes":"Plural."}
+{"id":"p3","tags":["plural"],"text":"We now have three kinds of tarts at the counter.","required":["tart"],"forbidden":[],"notes":"Plural of an ambiguous word, used in the pastry sense. 'At the counter' is not the four word entry."}
+{"id":"p4","tags":["plural"],"text":"Brownies and smoothies are half price after six.","required":["brownie","smoothie"],"forbidden":[],"notes":"Two plurals."}
+{"id":"l1","tags":["long"],"text":"Try our new iced green tea this week.","required":["iced green tea"],"forbidden":[],"notes":"Three word entry; tea on its own is a tuned entry and counts as extra."}
+{"id":"l2","tags":["long"],"text":"Cold brew coffee, steeped for eighteen hours.","required":["cold brew coffee"],"forbidden":[],"notes":"Three word entry; coffee on its own counts as extra. 'Cold coffee' is a tuned entry but the words are not next to each other."}
+{"id":"l3","tags":["long"],"text":"Buy one get one on every muffin, Fridays only.","required":["buy one get one","muffin"],"forbidden":[],"notes":"Four word entry plus a single word."}
+{"id":"l4","tags":["long"],"text":"Kids eat free every Sunday lunch.","required":["kids eat free"],"forbidden":[],"notes":"Three word entry."}
+{"id":"l5","tags":["long"],"text":"Please pay at the counter before you take a seat.","required":["pay at the counter"],"forbidden":[],"notes":"Four word entry with two stop words inside it."}
+{"id":"l6","tags":["long"],"text":"Live music night with acoustic covers from 8 pm.","required":["live music night"],"forbidden":[],"notes":"Three word entry."}
+{"id":"l7","tags":["long"],"text":"Pet friendly seating is now open on the terrace.","required":["pet friendly seating"],"forbidden":[],"notes":"Three word entry."}
+{"id":"l8","tags":["long"],"text":"Show your student discount card at the till.","required":["student discount card"],"forbidden":[],"notes":"Three word entry; discount on its own is a tuned entry and counts as extra."}
+{"id":"l9","tags":["long"],"text":"Early bird offer: a free croissant before 9 am.","required":["early bird offer","croissant"],"forbidden":[],"notes":"Three word entry plus a single word."}
+{"id":"l10","tags":["long"],"text":"Happy hour runs from 4 to 6 every weekday.","required":["happy hour"],"forbidden":[],"notes":"Two word entry, the length the tuned glossary already had."}
+{"id":"v1","tags":["spelling"],"text":"Our gluten-free bread is made fresh every day.","required":["gluten free bread"],"forbidden":[],"notes":"Hyphen in the post, none in the entry; bread on its own counts as extra."}
+{"id":"v2","tags":["spelling"],"text":"Free Wi-Fi for everyone, just ask for the password.","required":["free wifi"],"forbidden":[],"notes":"The post writes Wi-Fi, the entry wifi."}
+{"id":"t1","tags":["typo"],"text":"Fresh croisants every morning.","required":["croissant"],"forbidden":[],"notes":"One letter missing, and plural."}
+{"id":"t2","tags":["typo"],"text":"Mango smoothy for the hot afternoons.","required":["smoothie"],"forbidden":[],"notes":"Misspelt ending."}
+{"id":"t3","tags":["typo"],"text":"Join us for hapy hour, 4 to 6 pm.","required":["happy hour"],"forbidden":[],"notes":"One letter missing inside a phrase."}
+{"id":"t4","tags":["typo","long"],"text":"The early bird ofer ends this Friday.","required":["early bird offer"],"forbidden":[],"notes":"One letter missing inside a three word phrase."}
+{"id":"s1","tags":["synonym"],"text":"Try our hotcakes with fresh berries.","required":["pancake"],"forbidden":[],"notes":"Hotcakes are pancakes; nothing lexical can find that."}
+{"id":"s2","tags":["synonym"],"text":"Our nimbu pani is back for the summer.","required":["lemonade"],"forbidden":[],"notes":"Nimbu pani is lemonade."}
+{"id":"s3","tags":["synonym"],"text":"BOGO on all brownies this Saturday.","required":["buy one get one","brownie"],"forbidden":[],"notes":"BOGO is buy one get one; brownie is a plural."}
+{"id":"r1","tags":["sense"],"text":"Buttered toast with strawberry jam, every morning.","required":["toast","jam"],"forbidden":[],"notes":"Both ambiguous words in the sense the glossary means."}
+{"id":"r2","tags":["sense"],"text":"Add an extra shot to any espresso drink.","required":["shot","espresso"],"forbidden":[],"notes":"Shot in the espresso sense."}
+{"id":"r3","tags":["sense"],"text":"Lemon tart and a slice of apple pie, both baked today.","required":["tart","pie","bake"],"forbidden":[],"notes":"Tart and pie in the glossary's sense; baked needs the tuned entry bake, as in the tuned set."}
+{"id":"d1","tags":["distractor"],"text":"Stuck in a traffic jam? We will keep your table.","required":[],"forbidden":["jam"],"notes":"A traffic jam, not fruit jam. Nothing should be injected."}
+{"id":"d2","tags":["distractor"],"text":"Let's raise a toast to five years of the café!","required":[],"forbidden":["toast"],"notes":"Raising a toast, not bread. Nothing should be injected."}
+{"id":"d3","tags":["distractor"],"text":"Our new lime soda is a little tart, in a good way.","required":[],"forbidden":["tart"],"notes":"Tart as in sour, not the pastry. Nothing should be injected."}
+{"id":"d4","tags":["distractor"],"text":"This pie chart shows our most loved drinks.","required":[],"forbidden":["pie"],"notes":"A pie chart. Nothing should be injected."}
+{"id":"d5","tags":["distractor"],"text":"Great shot of the team at the food festival!","required":[],"forbidden":["shot"],"notes":"A photo, not an espresso shot. Nothing should be injected."}
+{"id":"d6","tags":["distractor"],"text":"This site uses cookies to remember your basket.","required":[],"forbidden":["cookie"],"notes":"Browser cookies: a tuned entry in a sense the tuned set never had. Nothing should be injected."}

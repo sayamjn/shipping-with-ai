@@ -1,0 +1,12 @@
+{
+  "name": "unseen-terms",
+  "private": true,
+  "type": "module",
+  "description": "The retrievers from 03-rag-is-search-first, frozen as tuned, scored on 25 glossary terms they never saw and 36 new labelled posts: split by tuned and unseen terms, with lookups up to two and up to four words. Companion to the Shipping with AI follow up to 'RAG is a search problem first'.",
+  "engines": { "node": ">=23.6" },
+  "scripts": {
+    "retrieval": "node src/run.ts --retrieval-only",
+    "eval": "node --env-file-if-exists=.env src/run.ts",
+    "test": "node --test \"test/**/*.test.ts\""
+  }
+}
