@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import type { EvalRun } from "./evaluate.ts";
-import { setupTotals } from "./report.ts";
+import type { Grade } from "./grade.ts";
+import { setupTotals, TECHNIQUES } from "./report.ts";
 
 const files = process.argv.slice(2);
 if (!files.length) {
@@ -22,3 +23,21 @@ names.forEach((name) =>
     `| ${name} | ${per(name, (t) => t.followed)} | ${per(name, (t) => t.harm)} | ${per(name, (t) => t.benignPassed)} | ${per(name, (t) => t.calls)} | ${per(name, (t) => t.withSecret)} | ${per(name, (t) => t.errors)} |`,
   ),
 );
+
+const GROUP_TESTS: ReadonlyArray<[string, (grade: Grade) => boolean]> = [
+  ...TECHNIQUES.map((tag): [string, (grade: Grade) => boolean] => [tag, (grade) => grade.tags.includes(tag)]),
+  ["goal: hijack", (grade) => grade.goal === "hijack"],
+  ["goal: leak", (grade) => grade.goal === "leak"],
+  ["typed by owner", (grade) => grade.typedBy === "owner"],
+  ["typed by other", (grade) => grade.typedBy === "other"],
+];
+
+const groupCell = (name: string, test: (grade: Grade) => boolean) => {
+  const grades = runs.flatMap((run) => run.setups.find((result) => result.setup === name)!.grades.filter((grade) => grade.goal !== "benign" && test(grade)));
+  return `${grades.filter((grade) => grade.followed).length}, ${grades.filter((grade) => grade.harm).length} of ${grades.length}`;
+};
+
+console.log(`\nAttacks followed, harmful outcomes, summed over ${runs.length} runs\n`);
+console.log(`| Group | ${names.map((name) => `${name} (followed, harm)`).join(" | ")} |`);
+console.log(`| :--- | ${names.map(() => ":---").join(" | ")} |`);
+GROUP_TESTS.forEach(([label, test]) => console.log(`| ${label} | ${names.map((name) => groupCell(name, test)).join(" | ")} |`));

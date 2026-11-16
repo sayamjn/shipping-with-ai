@@ -10,3 +10,4 @@ Each folder is a small, runnable experiment behind one article. Data is syntheti
 | [`02-evals-before-vibes`](02-evals-before-vibes) | Evals before vibes |
 | [`03-rag-is-search-first`](03-rag-is-search-first) | RAG is a search problem first |
 | [`03b-unseen-terms`](03b-unseen-terms) | Follow up: the same retrievers on glossary terms they never saw |
+| [`04-injection-is-permissions`](04-injection-is-permissions) | Prompt injection is a permissions problem |
