@@ -31,7 +31,7 @@ GROQ_API_KEY=... npm run eval      # retrieval plus the model rewrite on Groq, o
 
 `results/sample-run-2026-11-16-retrieval.json`. Retrieval is plain code, so every run gives the same numbers.
 
-| Retriever | Posts complete | Needed entries found | Unseen entries found | Wrong sense entries |
+| Retriever | Posts complete | Needed mentions found | Unseen term mentions found | Wrong sense entries |
 | :--- | :--- | :--- | :--- | :--- |
 | Exact (the tuned rule) | 18 of 36 | 25 of 40 | 25 of 39 | 5 |
 | Normalised | 22 of 36 | 32 of 40 | 31 of 39 | 6 |
@@ -39,14 +39,15 @@ GROQ_API_KEY=... npm run eval      # retrieval plus the model rewrite on Groq, o
 | Normalised + fuzzy | 25 of 36 | 35 of 40 | 34 of 39 | 6 |
 | Oracle | 36 of 36 | 40 of 40 | 39 of 39 | 0 |
 
-| Exact lookups up to | 3 word entries found | 4 word entries found | Posts complete | Lookup keys built | Entries sent to the model |
+| Exact lookups up to | 3 word mentions found | 4 word mentions found | Posts complete | Lookup keys built | Entries sent to the model |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | 2 words | 0 of 9 | 0 of 3 | 8 of 36 | 457 | 24 |
 | 4 words | 8 of 9 | 2 of 3 | 18 of 36 | 837 | 34 |
 
-- **Recall on unseen terms:** normalised + fuzzy found 34 of 39 unseen entries. On the tuned set it found 33 of 36. Its misses here are the three synonyms, a plural with a typo ("croisants") and a single misspelt word ("smoothy").
+- **Recall on unseen terms:** the counts are mentions: posts need the 25 unseen terms 39 times in all (`early bird offer` and `buy one get one` twice each, among others). Normalised + fuzzy found 34 of 39; on the tuned set it found 33 of 36. Its misses are two synonyms (hotcakes, nimbu pani), the abbreviation BOGO, a plural with a typo ("croisants") and a single misspelt word ("smoothy").
+- **Per term:** normalised + fuzzy found 20 of the 25 unseen terms on every mention and the other 5 on some; none never. Exact found 14 on every mention, 9 on some and never found `pancake` or `free wifi`.
 - **Wrong senses:** none of the six distractor posts came through clean with normalised, fuzzy or both. Exact missed only "cookies", because it doesn't match plurals. Nothing in these retrievers knows about sense.
-- **Longer lookups:** they found 10 of the 12 three and four word entries that two word lookups could never reach, and doubled the complete posts. The extra lookups cost no context: only matched entries go into the prompt, so the prompt grew by exactly the 10 entries found.
+- **Longer lookups:** they found 10 of the 12 three and four word mentions that two word lookups could never reach, and took complete posts from 8 to 18. Lookup keys are built locally and never reach the prompt; the prompts grew by the 10 entries found, in total across the 36 posts. Prompt tokens and lookup time were not measured, and the answer step was not run separately for the two limits.
 
 ## Results, the model
 
@@ -59,8 +60,8 @@ GROQ_API_KEY=... npm run eval      # retrieval plus the model rewrite on Groq, o
 | Oracle | 33, 34, 32 | 33, 34, 32 of 36 | none |
 
 - **A gap was always a wrong answer.** Every post whose retrieval missed an entry or returned a wrong sense came out wrong, in every run.
-- **A wrong sense entry was always used.** Exact returned 5 and normalised + fuzzy 6, so there were 33 chances over three runs, and the model put the wrong word in all 33: "Stuck in a traffic murla?", "This goma chart shows our most loved drinks". In article 3 it held back twice in 15.
-- **Perfect retrieval still left a few.** With the labelled entries handed over, the model left "hotcakes" and "nimbu pani" as written in every run instead of using the pancake and lemonade entries, and sometimes kept "smoothy" or "hapy hour". It did turn BOGO into the buy one get one word every time.
+- **A wrong sense entry was always used.** Exact returned 5 per run and normalised + fuzzy 6, so there were (5 + 6) × 3 = 33 chances, and the model put the wrong word in all 33: "Stuck in a traffic murla?", "This goma chart shows our most loved drinks". In article 3 it held back twice in 15.
+- **Perfect retrieval still left a few.** With the labelled entries handed over, the model left "hotcakes" and "nimbu pani" as written in every run instead of using the pancake and lemonade entries. The other misses: "smoothy" kept as written in runs 1 and 3, and "hapy hour" in run 3; run 2 had none. It did turn BOGO into the buy one get one word every time.
 
 ## Limitations
 
