@@ -48,6 +48,20 @@ GROQ_API_KEY=... npm run eval      # retrieval plus the model rewrite on Groq, o
 - **Wrong senses:** none of the six distractor posts came through clean with normalised, fuzzy or both. Exact missed only "cookies", because it doesn't match plurals. Nothing in these retrievers knows about sense.
 - **Longer lookups:** they found 10 of the 12 three and four word entries that two word lookups could never reach, and doubled the complete posts. The extra lookups cost no context: only matched entries go into the prompt, so the prompt grew by exactly the 10 entries found.
 
+## Results, the model
+
+`results/sample-run-2026-11-16-groq-gpt-oss-120b-{1,2,3}.json`: three runs on `openai/gpt-oss-120b` through Groq, 108 calls each, no errors. Retrieval in all three is identical to the retrieval only run.
+
+| Retriever | Posts right, runs 1 / 2 / 3 | Right when retrieval was complete | Right when retrieval had a gap |
+| :--- | :--- | :--- | :--- |
+| Exact (the tuned rule) | 18, 18, 18 | 18 of 18, every run | 0 of 18, every run |
+| Normalised + fuzzy | 25, 25, 25 | 25 of 25, every run | 0 of 11, every run |
+| Oracle | 33, 34, 32 | 33, 34, 32 of 36 | none |
+
+- **A gap was always a wrong answer.** Every post whose retrieval missed an entry or returned a wrong sense came out wrong, in every run.
+- **A wrong sense entry was always used.** Exact returned 5 and normalised + fuzzy 6, so there were 33 chances over three runs, and the model put the wrong word in all 33: "Stuck in a traffic murla?", "This goma chart shows our most loved drinks". In article 3 it held back twice in 15.
+- **Perfect retrieval still left a few.** With the labelled entries handed over, the model left "hotcakes" and "nimbu pani" as written in every run instead of using the pancake and lemonade entries, and sometimes kept "smoothy" or "hapy hour". It did turn BOGO into the buy one get one word every time.
+
 ## Limitations
 
 - 36 synthetic posts and 25 new entries, written and labelled by the same person who built the retrievers. Knowing how they work could make the posts easier or harder than real ones; real posts would be the stronger test.
