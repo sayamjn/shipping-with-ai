@@ -9,3 +9,4 @@ Each folder is a small, runnable experiment behind one article. Data is syntheti
 | [`01-agent-or-workflow`](01-agent-or-workflow) | Not every AI feature needs an agent |
 | [`02-evals-before-vibes`](02-evals-before-vibes) | Evals before vibes |
 | [`03-rag-is-search-first`](03-rag-is-search-first) | RAG is a search problem first |
+| [`03b-unseen-terms`](03b-unseen-terms) | Follow up: the same retrievers on glossary terms they never saw |
