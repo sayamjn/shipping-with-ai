@@ -1,0 +1,13 @@
+{
+  "name": "injection-is-permissions",
+  "private": true,
+  "type": "module",
+  "description": "A synthetic WhatsApp assistant attacked with planted messages under three setups: no defence, a prompt defence, and permissions enforced in code. Attacks the model followed and harm done are scored in code. Companion to the Shipping with AI article 'Prompt injection is a permissions problem'.",
+  "engines": { "node": ">=23.6" },
+  "scripts": {
+    "eval": "node --env-file-if-exists=.env src/run.ts",
+    "eval:offline": "node src/run.ts --offline",
+    "summary": "node src/summary.ts",
+    "test": "node --test \"test/**/*.test.ts\""
+  }
+}
