@@ -1,0 +1,3080 @@
+{
+  "model": "groq openai/gpt-oss-120b",
+  "startedAt": "2026-11-17T12:40:49.813Z",
+  "prompts": [
+    {
+      "name": "must use every entry",
+      "system": "You write short social media posts for a café. The café has a house glossary of its own words. Rewrite the post in English, but use the glossary word in place of each glossary term, exactly as given. Keep everything else as it is. Reply with the rewritten post only.",
+      "header": "Glossary (use exactly as provided):"
+    },
+    {
+      "name": "may skip a wrong sense",
+      "system": "You write short social media posts for a café. The café has a house glossary of its own words. Rewrite the post in English, but use the glossary word in place of a glossary term only where the term means the same thing in the post as it does on the café's menu. If a term is used in a different sense in the post, leave it as written. Keep everything else as it is. Reply with the rewritten post only.",
+      "header": "Glossary (use where the meaning fits):"
+    }
+  ],
+  "promptCells": [
+    {
+      "prompt": "must use every entry",
+      "retriever": "normalised + fuzzy",
+      "scores": [
+        {
+          "postId": "x1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 81
+          },
+          "output": "Fresh kelta and a vizzo for the road."
+        },
+        {
+          "postId": "x2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 21,
+            "thinkingTokens": 60
+          },
+          "output": "Start your morning with an drumi and a lumari."
+        },
+        {
+          "postId": "x3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 64
+          },
+          "output": "Homemade sitra is back for the summer."
+        },
+        {
+          "postId": "x4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 21,
+            "thinkingTokens": 92
+          },
+          "output": "Warm apple tosku with custard, only on Sundays."
+        },
+        {
+          "postId": "p1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 156
+          },
+          "output": "Blueberry pofi, fresh every morning."
+        },
+        {
+          "postId": "p2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 20,
+            "thinkingTokens": 85
+          },
+          "output": "Stacks of flapo with maple syrup, all day."
+        },
+        {
+          "postId": "p3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 159,
+            "outputTokens": 21,
+            "thinkingTokens": 125
+          },
+          "output": "We now have three kinds of fendo at the counter."
+        },
+        {
+          "postId": "p4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 20,
+            "thinkingTokens": 188
+          },
+          "output": "kelta and vizzo are half price after six."
+        },
+        {
+          "postId": "l1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 166,
+            "outputTokens": 19,
+            "thinkingTokens": 105
+          },
+          "output": "Try our new glaso venti this week."
+        },
+        {
+          "postId": "l2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 166,
+            "outputTokens": 19,
+            "thinkingTokens": 186
+          },
+          "output": "nakro bel, steeped for eighteen hours."
+        },
+        {
+          "postId": "l3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 168,
+            "outputTokens": 20,
+            "thinkingTokens": 139
+          },
+          "output": "doppa kin on every pofi, Fridays only."
+        },
+        {
+          "postId": "l4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 16,
+            "thinkingTokens": 141
+          },
+          "output": "nani pomo every Sunday lunch."
+        },
+        {
+          "postId": "l5",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 19,
+            "thinkingTokens": 82
+          },
+          "output": "Please kasa tumo before you take a seat."
+        },
+        {
+          "postId": "l6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 20,
+            "thinkingTokens": 127
+          },
+          "output": "rava nok with acoustic covers from 8 pm."
+        },
+        {
+          "postId": "l7",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 19,
+            "thinkingTokens": 117
+          },
+          "output": "hundo sita is now open on the terrace."
+        },
+        {
+          "postId": "l8",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 18,
+            "thinkingTokens": 95
+          },
+          "output": "Show your stuno kart at the till."
+        },
+        {
+          "postId": "l9",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 170,
+            "outputTokens": 22,
+            "thinkingTokens": 186
+          },
+          "output": "piko varn: a free lumari before 9 am."
+        },
+        {
+          "postId": "l10",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 22,
+            "thinkingTokens": 133
+          },
+          "output": "lumo tid runs from 4 to 6 every weekday."
+        },
+        {
+          "postId": "v1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 167,
+            "outputTokens": 20,
+            "thinkingTokens": 200
+          },
+          "output": "Our sanu brik is made fresh every day."
+        },
+        {
+          "postId": "v2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 21,
+            "thinkingTokens": 130
+          },
+          "output": "wefa lin for everyone, just ask for the password."
+        },
+        {
+          "postId": "t1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 150,
+            "outputTokens": 15,
+            "thinkingTokens": 111
+          },
+          "output": "Fresh croisants every morning."
+        },
+        {
+          "postId": "t2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 18,
+            "thinkingTokens": 70
+          },
+          "output": "Mango smoothy for the hot afternoons."
+        },
+        {
+          "postId": "t3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 23,
+            "thinkingTokens": 287
+          },
+          "output": "Join us for lumo tid, 4 to 6 pm."
+        },
+        {
+          "postId": "t4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 17,
+            "thinkingTokens": 283
+          },
+          "output": "The piko varn ends this Friday."
+        },
+        {
+          "postId": "s1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 77
+          },
+          "output": "Try our hotcakes with fresh berries."
+        },
+        {
+          "postId": "s2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 62
+          },
+          "output": "Our nimbu pani is back for the summer."
+        },
+        {
+          "postId": "s3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 214
+          },
+          "output": "BOGO on all kelta this Saturday."
+        },
+        {
+          "postId": "r1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 21,
+            "thinkingTokens": 87
+          },
+          "output": "Buttered brenka with strawberry murla, every morning."
+        },
+        {
+          "postId": "r2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 86
+          },
+          "output": "Add an extra zinta to any drumi drink."
+        },
+        {
+          "postId": "r3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 3,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 171,
+            "outputTokens": 25,
+            "thinkingTokens": 197
+          },
+          "output": "Lemon fendo and a slice of apple goma, both horpa today."
+        },
+        {
+          "postId": "d1",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 23,
+            "thinkingTokens": 76
+          },
+          "output": "Stuck in a traffic murla? We will keep your table."
+        },
+        {
+          "postId": "d2",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 21,
+            "thinkingTokens": 63
+          },
+          "output": "Let's raise a brenka to five years of the café!"
+        },
+        {
+          "postId": "d3",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 24,
+            "thinkingTokens": 89
+          },
+          "output": "Our new lime soda is a little fendo, in a good way."
+        },
+        {
+          "postId": "d4",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 74
+          },
+          "output": "This goma chart shows our most loved drinks."
+        },
+        {
+          "postId": "d5",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 20,
+            "thinkingTokens": 90
+          },
+          "output": "Great zinta of the team at the food festival!"
+        },
+        {
+          "postId": "d6",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 19,
+            "thinkingTokens": 184
+          },
+          "output": "This site uses dorpa to remember your basket."
+        }
+      ]
+    },
+    {
+      "prompt": "must use every entry",
+      "retriever": "oracle (labels)",
+      "scores": [
+        {
+          "postId": "x1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 86
+          },
+          "output": "Fresh kelta and a vizzo for the road."
+        },
+        {
+          "postId": "x2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 21,
+            "thinkingTokens": 105
+          },
+          "output": "Start your morning with an drumi and a lumari."
+        },
+        {
+          "postId": "x3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 79
+          },
+          "output": "Homemade sitra is back for the summer."
+        },
+        {
+          "postId": "x4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 21,
+            "thinkingTokens": 114
+          },
+          "output": "Warm apple tosku with custard, only on Sundays."
+        },
+        {
+          "postId": "p1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 311
+          },
+          "output": "Blueberry pofi, fresh every morning."
+        },
+        {
+          "postId": "p2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 20,
+            "thinkingTokens": 172
+          },
+          "output": "Stacks of flapo with maple syrup, all day."
+        },
+        {
+          "postId": "p3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 159,
+            "outputTokens": 21,
+            "thinkingTokens": 76
+          },
+          "output": "We now have three kinds of fendo at the counter."
+        },
+        {
+          "postId": "p4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 20,
+            "thinkingTokens": 163
+          },
+          "output": "kelta and vizzo are half price after six."
+        },
+        {
+          "postId": "l1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 19,
+            "thinkingTokens": 66
+          },
+          "output": "Try our new glaso venti this week."
+        },
+        {
+          "postId": "l2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 19,
+            "thinkingTokens": 154
+          },
+          "output": "nakro bel, steeped for eighteen hours."
+        },
+        {
+          "postId": "l3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 168,
+            "outputTokens": 20,
+            "thinkingTokens": 117
+          },
+          "output": "doppa kin on every pofi, Fridays only."
+        },
+        {
+          "postId": "l4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 16,
+            "thinkingTokens": 102
+          },
+          "output": "nani pomo every Sunday lunch."
+        },
+        {
+          "postId": "l5",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 19,
+            "thinkingTokens": 83
+          },
+          "output": "Please kasa tumo before you take a seat."
+        },
+        {
+          "postId": "l6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 20,
+            "thinkingTokens": 120
+          },
+          "output": "rava nok with acoustic covers from 8 pm."
+        },
+        {
+          "postId": "l7",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 19,
+            "thinkingTokens": 132
+          },
+          "output": "hundo sita is now open on the terrace."
+        },
+        {
+          "postId": "l8",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 159,
+            "outputTokens": 18,
+            "thinkingTokens": 58
+          },
+          "output": "Show your stuno kart at the till."
+        },
+        {
+          "postId": "l9",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 170,
+            "outputTokens": 22,
+            "thinkingTokens": 176
+          },
+          "output": "piko varn: a free lumari before 9 am."
+        },
+        {
+          "postId": "l10",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 22,
+            "thinkingTokens": 202
+          },
+          "output": "lumo tid runs from 4 to 6 every weekday."
+        },
+        {
+          "postId": "v1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 20,
+            "thinkingTokens": 174
+          },
+          "output": "Our sanu brik is made fresh every day."
+        },
+        {
+          "postId": "v2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 21,
+            "thinkingTokens": 133
+          },
+          "output": "wefa lin for everyone, just ask for the password."
+        },
+        {
+          "postId": "t1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 154,
+            "outputTokens": 15,
+            "thinkingTokens": 138
+          },
+          "output": "Fresh lumari every morning."
+        },
+        {
+          "postId": "t2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 335
+          },
+          "output": "Mango vizzo for the hot afternoons."
+        },
+        {
+          "postId": "t3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 23,
+            "thinkingTokens": 224
+          },
+          "output": "Join us for lumo tid, 4 to 6 pm."
+        },
+        {
+          "postId": "t4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 17,
+            "thinkingTokens": 162
+          },
+          "output": "The piko varn ends this Friday."
+        },
+        {
+          "postId": "s1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 1,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 17,
+            "thinkingTokens": 150
+          },
+          "output": "Try our hotcakes with fresh berries."
+        },
+        {
+          "postId": "s2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 1,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 20,
+            "thinkingTokens": 83
+          },
+          "output": "Our nimbu pani is back for the summer."
+        },
+        {
+          "postId": "s3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 19,
+            "thinkingTokens": 372
+          },
+          "output": "doppa kin on all kelta this Saturday."
+        },
+        {
+          "postId": "r1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 21,
+            "thinkingTokens": 79
+          },
+          "output": "Buttered brenka with strawberry murla, every morning."
+        },
+        {
+          "postId": "r2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 99
+          },
+          "output": "Add an extra zinta to any drumi drink."
+        },
+        {
+          "postId": "r3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 3,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 171,
+            "outputTokens": 25,
+            "thinkingTokens": 182
+          },
+          "output": "Lemon fendo and a slice of apple goma, both horpa today."
+        },
+        {
+          "postId": "d1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 22,
+            "thinkingTokens": 57
+          },
+          "output": "Stuck in a traffic jam? We will keep your table."
+        },
+        {
+          "postId": "d2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 88
+          },
+          "output": "Let's raise a toast to five years of the café!"
+        },
+        {
+          "postId": "d3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 23,
+            "thinkingTokens": 125
+          },
+          "output": "Our new lime soda is a little tart, in a good way."
+        },
+        {
+          "postId": "d4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 18,
+            "thinkingTokens": 108
+          },
+          "output": "This pie chart shows our most loved drinks."
+        },
+        {
+          "postId": "d5",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 154,
+            "outputTokens": 19,
+            "thinkingTokens": 109
+          },
+          "output": "Great shot of the team at the food festival!"
+        },
+        {
+          "postId": "d6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 18,
+            "thinkingTokens": 106
+          },
+          "output": "This site uses cookies to remember your basket."
+        }
+      ]
+    },
+    {
+      "prompt": "may skip a wrong sense",
+      "retriever": "normalised + fuzzy",
+      "scores": [
+        {
+          "postId": "x1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 196,
+            "outputTokens": 20,
+            "thinkingTokens": 123
+          },
+          "output": "Fresh kelta and a vizzo for the road."
+        },
+        {
+          "postId": "x2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 199,
+            "outputTokens": 21,
+            "thinkingTokens": 224
+          },
+          "output": "Start your morning with an drumi and a lumari."
+        },
+        {
+          "postId": "x3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 20,
+            "thinkingTokens": 78
+          },
+          "output": "Homemade sitra is back for the summer."
+        },
+        {
+          "postId": "x4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 21,
+            "thinkingTokens": 127
+          },
+          "output": "Warm apple tosku with custard, only on Sundays."
+        },
+        {
+          "postId": "p1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 18,
+            "thinkingTokens": 163
+          },
+          "output": "Blueberry pofi, fresh every morning."
+        },
+        {
+          "postId": "p2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 20,
+            "thinkingTokens": 55
+          },
+          "output": "Stacks of flapo with maple syrup, all day."
+        },
+        {
+          "postId": "p3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 193,
+            "outputTokens": 21,
+            "thinkingTokens": 185
+          },
+          "output": "We now have three kinds of fendos at the counter."
+        },
+        {
+          "postId": "p4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 197,
+            "outputTokens": 20,
+            "thinkingTokens": 95
+          },
+          "output": "Kelta and vizzo are half price after six."
+        },
+        {
+          "postId": "l1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 200,
+            "outputTokens": 19,
+            "thinkingTokens": 92
+          },
+          "output": "Try our new glaso venti this week."
+        },
+        {
+          "postId": "l2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 200,
+            "outputTokens": 19,
+            "thinkingTokens": 130
+          },
+          "output": "nakro bel, steeped for eighteen hours."
+        },
+        {
+          "postId": "l3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 202,
+            "outputTokens": 20,
+            "thinkingTokens": 149
+          },
+          "output": "doppa kin on every pofi, Fridays only."
+        },
+        {
+          "postId": "l4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 190,
+            "outputTokens": 16,
+            "thinkingTokens": 121
+          },
+          "output": "nani pomo every Sunday lunch."
+        },
+        {
+          "postId": "l5",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 196,
+            "outputTokens": 19,
+            "thinkingTokens": 87
+          },
+          "output": "Please kasa tumo before you take a seat."
+        },
+        {
+          "postId": "l6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 195,
+            "outputTokens": 21,
+            "thinkingTokens": 194
+          },
+          "output": "rava nok with acoustic covers from 8 pm."
+        },
+        {
+          "postId": "l7",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 194,
+            "outputTokens": 19,
+            "thinkingTokens": 112
+          },
+          "output": "hundo sita is now open on the terrace."
+        },
+        {
+          "postId": "l8",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 199,
+            "outputTokens": 18,
+            "thinkingTokens": 107
+          },
+          "output": "Show your stuno kart at the till."
+        },
+        {
+          "postId": "l9",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 204,
+            "outputTokens": 22,
+            "thinkingTokens": 98
+          },
+          "output": "piko varn: a free lumari before 9 am."
+        },
+        {
+          "postId": "l10",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 195,
+            "outputTokens": 22,
+            "thinkingTokens": 102
+          },
+          "output": "Lumo tid runs from 4 to 6 every weekday."
+        },
+        {
+          "postId": "v1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 201,
+            "outputTokens": 20,
+            "thinkingTokens": 110
+          },
+          "output": "Our sanu brik is made fresh every day."
+        },
+        {
+          "postId": "v2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 195,
+            "outputTokens": 21,
+            "thinkingTokens": 160
+          },
+          "output": "wefa lin for everyone, just ask for the password."
+        },
+        {
+          "postId": "t1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 184,
+            "outputTokens": 15,
+            "thinkingTokens": 156
+          },
+          "output": "Fresh croisants every morning."
+        },
+        {
+          "postId": "t2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 186,
+            "outputTokens": 18,
+            "thinkingTokens": 56
+          },
+          "output": "Mango smoothy for the hot afternoons."
+        },
+        {
+          "postId": "t3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 197,
+            "outputTokens": 23,
+            "thinkingTokens": 251
+          },
+          "output": "Join us for lumo tid, 4 to 6 pm."
+        },
+        {
+          "postId": "t4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 17,
+            "thinkingTokens": 112
+          },
+          "output": "The piko varn ends this Friday."
+        },
+        {
+          "postId": "s1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 186,
+            "outputTokens": 17,
+            "thinkingTokens": 19
+          },
+          "output": "Try our hotcakes with fresh berries."
+        },
+        {
+          "postId": "s2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 20,
+            "thinkingTokens": 121
+          },
+          "output": "Our nimbu pani is back for the summer."
+        },
+        {
+          "postId": "s3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 18,
+            "thinkingTokens": 123
+          },
+          "output": "BOGO on all kelta this Saturday."
+        },
+        {
+          "postId": "r1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 197,
+            "outputTokens": 21,
+            "thinkingTokens": 122
+          },
+          "output": "Buttered brenka with strawberry murla, every morning."
+        },
+        {
+          "postId": "r2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 196,
+            "outputTokens": 20,
+            "thinkingTokens": 168
+          },
+          "output": "Add an extra zinta to any drumi drink."
+        },
+        {
+          "postId": "r3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 3,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 205,
+            "outputTokens": 25,
+            "thinkingTokens": 193
+          },
+          "output": "Lemon fendo and a slice of apple goma, both horpa today."
+        },
+        {
+          "postId": "d1",
+          "pass": true,
+          "wrongSupplied": 1,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 194,
+            "outputTokens": 22,
+            "thinkingTokens": 93
+          },
+          "output": "Stuck in a traffic jam? We will keep your table."
+        },
+        {
+          "postId": "d2",
+          "pass": true,
+          "wrongSupplied": 1,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 20,
+            "thinkingTokens": 101
+          },
+          "output": "Let's raise a toast to five years of the café!"
+        },
+        {
+          "postId": "d3",
+          "pass": true,
+          "wrongSupplied": 1,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 195,
+            "outputTokens": 23,
+            "thinkingTokens": 67
+          },
+          "output": "Our new lime soda is a little tart, in a good way."
+        },
+        {
+          "postId": "d4",
+          "pass": true,
+          "wrongSupplied": 1,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 18,
+            "thinkingTokens": 143
+          },
+          "output": "This pie chart shows our most loved drinks."
+        },
+        {
+          "postId": "d5",
+          "pass": true,
+          "wrongSupplied": 1,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 191,
+            "outputTokens": 19,
+            "thinkingTokens": 114
+          },
+          "output": "Great shot of the team at the food festival!"
+        },
+        {
+          "postId": "d6",
+          "pass": true,
+          "wrongSupplied": 1,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 190,
+            "outputTokens": 18,
+            "thinkingTokens": 118
+          },
+          "output": "This site uses cookies to remember your basket."
+        }
+      ]
+    },
+    {
+      "prompt": "may skip a wrong sense",
+      "retriever": "oracle (labels)",
+      "scores": [
+        {
+          "postId": "x1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 196,
+            "outputTokens": 20,
+            "thinkingTokens": 132
+          },
+          "output": "Fresh kelta and a vizzo for the road."
+        },
+        {
+          "postId": "x2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 199,
+            "outputTokens": 21,
+            "thinkingTokens": 84
+          },
+          "output": "Start your morning with a drumi and a lumari."
+        },
+        {
+          "postId": "x3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 20,
+            "thinkingTokens": 97
+          },
+          "output": "Homemade sitra is back for the summer."
+        },
+        {
+          "postId": "x4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 21,
+            "thinkingTokens": 136
+          },
+          "output": "Warm apple tosku with custard, only on Sundays."
+        },
+        {
+          "postId": "p1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 18,
+            "thinkingTokens": 105
+          },
+          "output": "Blueberry pofi, fresh every morning."
+        },
+        {
+          "postId": "p2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 20,
+            "thinkingTokens": 91
+          },
+          "output": "Stacks of flapo with maple syrup, all day."
+        },
+        {
+          "postId": "p3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 193,
+            "outputTokens": 21,
+            "thinkingTokens": 229
+          },
+          "output": "We now have three kinds of fendo at the counter."
+        },
+        {
+          "postId": "p4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 197,
+            "outputTokens": 20,
+            "thinkingTokens": 279
+          },
+          "output": "Kelta and vizzo are half price after six."
+        },
+        {
+          "postId": "l1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 194,
+            "outputTokens": 19,
+            "thinkingTokens": 90
+          },
+          "output": "Try our new glaso venti this week."
+        },
+        {
+          "postId": "l2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 194,
+            "outputTokens": 19,
+            "thinkingTokens": 191
+          },
+          "output": "Nakro bel, steeped for eighteen hours."
+        },
+        {
+          "postId": "l3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 202,
+            "outputTokens": 20,
+            "thinkingTokens": 133
+          },
+          "output": "doppa kin on every pofi, Fridays only."
+        },
+        {
+          "postId": "l4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 190,
+            "outputTokens": 16,
+            "thinkingTokens": 152
+          },
+          "output": "nani pomo every Sunday lunch."
+        },
+        {
+          "postId": "l5",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 196,
+            "outputTokens": 19,
+            "thinkingTokens": 106
+          },
+          "output": "Please kasa tumo before you take a seat."
+        },
+        {
+          "postId": "l6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 195,
+            "outputTokens": 20,
+            "thinkingTokens": 98
+          },
+          "output": "rava nok with acoustic covers from 8 pm."
+        },
+        {
+          "postId": "l7",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 194,
+            "outputTokens": 19,
+            "thinkingTokens": 81
+          },
+          "output": "hundo sita is now open on the terrace."
+        },
+        {
+          "postId": "l8",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 193,
+            "outputTokens": 18,
+            "thinkingTokens": 75
+          },
+          "output": "Show your stuno kart at the till."
+        },
+        {
+          "postId": "l9",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 204,
+            "outputTokens": 22,
+            "thinkingTokens": 110
+          },
+          "output": "piko varn: a free lumari before 9 am."
+        },
+        {
+          "postId": "l10",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 195,
+            "outputTokens": 22,
+            "thinkingTokens": 87
+          },
+          "output": "Lumo tid runs from 4 to 6 every weekday."
+        },
+        {
+          "postId": "v1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 195,
+            "outputTokens": 20,
+            "thinkingTokens": 114
+          },
+          "output": "Our sanu brik is made fresh every day."
+        },
+        {
+          "postId": "v2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 195,
+            "outputTokens": 21,
+            "thinkingTokens": 129
+          },
+          "output": "wefa lin for everyone, just ask for the password."
+        },
+        {
+          "postId": "t1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 188,
+            "outputTokens": 15,
+            "thinkingTokens": 91
+          },
+          "output": "Fresh lumari every morning."
+        },
+        {
+          "postId": "t2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 18,
+            "thinkingTokens": 248
+          },
+          "output": "Mango vizzo for the hot afternoons."
+        },
+        {
+          "postId": "t3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 197,
+            "outputTokens": 23,
+            "thinkingTokens": 268
+          },
+          "output": "Join us for lumo tid, 4 to 6 pm."
+        },
+        {
+          "postId": "t4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 17,
+            "thinkingTokens": 281
+          },
+          "output": "The piko varn ends this Friday."
+        },
+        {
+          "postId": "s1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 17,
+            "thinkingTokens": 121
+          },
+          "output": "Try our flapo with fresh berries."
+        },
+        {
+          "postId": "s2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 1,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 20,
+            "thinkingTokens": 182
+          },
+          "output": "Our nimbu pani is back for the summer."
+        },
+        {
+          "postId": "s3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 199,
+            "outputTokens": 19,
+            "thinkingTokens": 152
+          },
+          "output": "doppa kin on all kelta this Saturday."
+        },
+        {
+          "postId": "r1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 197,
+            "outputTokens": 21,
+            "thinkingTokens": 107
+          },
+          "output": "Buttered brenka with strawberry murla, every morning."
+        },
+        {
+          "postId": "r2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 196,
+            "outputTokens": 20,
+            "thinkingTokens": 136
+          },
+          "output": "Add an extra zinta to any drumi drink."
+        },
+        {
+          "postId": "r3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 3,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 205,
+            "outputTokens": 25,
+            "thinkingTokens": 239
+          },
+          "output": "Lemon fendo and a slice of apple goma, both horpa today."
+        },
+        {
+          "postId": "d1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 191,
+            "outputTokens": 22,
+            "thinkingTokens": 40
+          },
+          "output": "Stuck in a traffic jam? We will keep your table."
+        },
+        {
+          "postId": "d2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 189,
+            "outputTokens": 20,
+            "thinkingTokens": 68
+          },
+          "output": "Let's raise a toast to five years of the café!"
+        },
+        {
+          "postId": "d3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 192,
+            "outputTokens": 23,
+            "thinkingTokens": 57
+          },
+          "output": "Our new lime soda is a little tart, in a good way."
+        },
+        {
+          "postId": "d4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 187,
+            "outputTokens": 18,
+            "thinkingTokens": 82
+          },
+          "output": "This pie chart shows our most loved drinks."
+        },
+        {
+          "postId": "d5",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 188,
+            "outputTokens": 19,
+            "thinkingTokens": 63
+          },
+          "output": "Great shot of the team at the food festival!"
+        },
+        {
+          "postId": "d6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 187,
+            "outputTokens": 18,
+            "thinkingTokens": 84
+          },
+          "output": "This site uses cookies to remember your basket."
+        }
+      ]
+    }
+  ],
+  "lookupCells": [
+    {
+      "prompt": "must use every entry",
+      "retriever": "exact, lookups up to 2 words",
+      "scores": [
+        {
+          "postId": "x1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 69
+          },
+          "output": "Fresh kelta and a vizzo for the road."
+        },
+        {
+          "postId": "x2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 21,
+            "thinkingTokens": 117
+          },
+          "output": "Start your morning with an drumi and a lumari."
+        },
+        {
+          "postId": "x3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 81
+          },
+          "output": "Homemade sitra is back for the summer."
+        },
+        {
+          "postId": "x4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 21,
+            "thinkingTokens": 71
+          },
+          "output": "Warm apple tosku with custard, only on Sundays."
+        },
+        {
+          "postId": "p1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 51
+          },
+          "output": "Blueberry muffins, fresh every morning."
+        },
+        {
+          "postId": "p2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 19,
+            "thinkingTokens": 87
+          },
+          "output": "Stacks of pancakes with maple syrup, all day."
+        },
+        {
+          "postId": "p3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 21,
+            "thinkingTokens": 111
+          },
+          "output": "We now have three kinds of tarts at the counter."
+        },
+        {
+          "postId": "p4",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 154,
+            "outputTokens": 19,
+            "thinkingTokens": 111
+          },
+          "output": "Brownies and smoothies are half price after six."
+        },
+        {
+          "postId": "l1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 19,
+            "thinkingTokens": 119
+          },
+          "output": "Try our new iced green chelu this week."
+        },
+        {
+          "postId": "l2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 20,
+            "thinkingTokens": 76
+          },
+          "output": "Cold brew mavi, steeped for eighteen hours."
+        },
+        {
+          "postId": "l3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 21,
+            "thinkingTokens": 45
+          },
+          "output": "Buy one get one on every pofi, Fridays only."
+        },
+        {
+          "postId": "l4",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 151,
+            "outputTokens": 16,
+            "thinkingTokens": 72
+          },
+          "output": "Kids eat free every Sunday lunch."
+        },
+        {
+          "postId": "l5",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 76
+          },
+          "output": "Please pay at the counter before you take a seat."
+        },
+        {
+          "postId": "l6",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 72
+          },
+          "output": "Live music night with acoustic covers from 8 pm."
+        },
+        {
+          "postId": "l7",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 154,
+            "outputTokens": 19,
+            "thinkingTokens": 68
+          },
+          "output": "Pet friendly seating is now open on the terrace."
+        },
+        {
+          "postId": "l8",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 19,
+            "thinkingTokens": 78
+          },
+          "output": "Show your student katro card at the till."
+        },
+        {
+          "postId": "l9",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 22,
+            "thinkingTokens": 77
+          },
+          "output": "Early bird offer: a free lumari before 9 am."
+        },
+        {
+          "postId": "l10",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 22,
+            "thinkingTokens": 185
+          },
+          "output": "lumo tid runs from 4 to 6 every weekday."
+        },
+        {
+          "postId": "v1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 20,
+            "thinkingTokens": 92
+          },
+          "output": "Our gluten-free paovi is made fresh every day."
+        },
+        {
+          "postId": "v2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 22,
+            "thinkingTokens": 98
+          },
+          "output": "Free Wi‑Fi for everyone, just ask for the password."
+        },
+        {
+          "postId": "t1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 150,
+            "outputTokens": 15,
+            "thinkingTokens": 88
+          },
+          "output": "Fresh croisants every morning."
+        },
+        {
+          "postId": "t2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 18,
+            "thinkingTokens": 94
+          },
+          "output": "Mango smoothy for the hot afternoons."
+        },
+        {
+          "postId": "t3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 23,
+            "thinkingTokens": 135
+          },
+          "output": "Join us for hapy hour, 4 to 6 pm."
+        },
+        {
+          "postId": "t4",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 134
+          },
+          "output": "The early bird ofer ends this Friday."
+        },
+        {
+          "postId": "s1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 99
+          },
+          "output": "Try our hotcakes with fresh berries."
+        },
+        {
+          "postId": "s2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 92
+          },
+          "output": "Our nimbu pani is back for the summer."
+        },
+        {
+          "postId": "s3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 42
+          },
+          "output": "BOGO on all brownies this Saturday."
+        },
+        {
+          "postId": "r1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 21,
+            "thinkingTokens": 84
+          },
+          "output": "Buttered brenka with strawberry murla, every morning."
+        },
+        {
+          "postId": "r2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 81
+          },
+          "output": "Add an extra zinta to any drumi drink."
+        },
+        {
+          "postId": "r3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 24,
+            "thinkingTokens": 113
+          },
+          "output": "Lemon fendo and a slice of apple goma, both baked today."
+        },
+        {
+          "postId": "d1",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 23,
+            "thinkingTokens": 96
+          },
+          "output": "Stuck in a traffic murla? We will keep your table."
+        },
+        {
+          "postId": "d2",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 21,
+            "thinkingTokens": 63
+          },
+          "output": "Let's raise a brenka to five years of the café!"
+        },
+        {
+          "postId": "d3",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 24,
+            "thinkingTokens": 104
+          },
+          "output": "Our new lime soda is a little fendo, in a good way."
+        },
+        {
+          "postId": "d4",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 92
+          },
+          "output": "This goma chart shows our most loved drinks."
+        },
+        {
+          "postId": "d5",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 20,
+            "thinkingTokens": 77
+          },
+          "output": "Great zinta of the team at the food festival!"
+        },
+        {
+          "postId": "d6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 18,
+            "thinkingTokens": 120
+          },
+          "output": "This site uses cookies to remember your basket."
+        }
+      ]
+    },
+    {
+      "prompt": "must use every entry",
+      "retriever": "exact, lookups up to 4 words",
+      "scores": [
+        {
+          "postId": "x1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 68
+          },
+          "output": "Fresh kelta and a vizzo for the road."
+        },
+        {
+          "postId": "x2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 21,
+            "thinkingTokens": 76
+          },
+          "output": "Start your morning with an drumi and a lumari."
+        },
+        {
+          "postId": "x3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 79
+          },
+          "output": "Homemade sitra is back for the summer."
+        },
+        {
+          "postId": "x4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 21,
+            "thinkingTokens": 81
+          },
+          "output": "Warm apple tosku with custard, only on Sundays."
+        },
+        {
+          "postId": "p1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 62
+          },
+          "output": "Blueberry muffins, fresh every morning."
+        },
+        {
+          "postId": "p2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 19,
+            "thinkingTokens": 59
+          },
+          "output": "Stacks of pancakes with maple syrup, all day."
+        },
+        {
+          "postId": "p3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 21,
+            "thinkingTokens": 57
+          },
+          "output": "We now have three kinds of tarts at the counter."
+        },
+        {
+          "postId": "p4",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 154,
+            "outputTokens": 19,
+            "thinkingTokens": 107
+          },
+          "output": "Brownies and smoothies are half price after six."
+        },
+        {
+          "postId": "l1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 166,
+            "outputTokens": 19,
+            "thinkingTokens": 57
+          },
+          "output": "Try our new glaso venti this week."
+        },
+        {
+          "postId": "l2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 166,
+            "outputTokens": 19,
+            "thinkingTokens": 162
+          },
+          "output": "nakro bel, steeped for eighteen hours."
+        },
+        {
+          "postId": "l3",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 168,
+            "outputTokens": 20,
+            "thinkingTokens": 98
+          },
+          "output": "doppa kin on every pofi, Fridays only."
+        },
+        {
+          "postId": "l4",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 16,
+            "thinkingTokens": 73
+          },
+          "output": "nani pomo every Sunday lunch."
+        },
+        {
+          "postId": "l5",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 19,
+            "thinkingTokens": 76
+          },
+          "output": "Please kasa tumo before you take a seat."
+        },
+        {
+          "postId": "l6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 20,
+            "thinkingTokens": 139
+          },
+          "output": "rava nok with acoustic covers from 8 pm."
+        },
+        {
+          "postId": "l7",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 19,
+            "thinkingTokens": 127
+          },
+          "output": "hundo sita is now open on the terrace."
+        },
+        {
+          "postId": "l8",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 18,
+            "thinkingTokens": 120
+          },
+          "output": "Show your stuno kart at the till."
+        },
+        {
+          "postId": "l9",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 170,
+            "outputTokens": 22,
+            "thinkingTokens": 107
+          },
+          "output": "piko varn: a free lumari before 9 am."
+        },
+        {
+          "postId": "l10",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 22,
+            "thinkingTokens": 154
+          },
+          "output": "lumo tid runs from 4 to 6 every weekday."
+        },
+        {
+          "postId": "v1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 1,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 167,
+            "outputTokens": 20,
+            "thinkingTokens": 165
+          },
+          "output": "Our sanu brik is made fresh every day."
+        },
+        {
+          "postId": "v2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 156,
+            "outputTokens": 21,
+            "thinkingTokens": 89
+          },
+          "output": "Free Wi-Fi for everyone, just ask for the password."
+        },
+        {
+          "postId": "t1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 150,
+            "outputTokens": 15,
+            "thinkingTokens": 163
+          },
+          "output": "Fresh croisants every morning."
+        },
+        {
+          "postId": "t2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 18,
+            "thinkingTokens": 71
+          },
+          "output": "Mango smoothy for the hot afternoons."
+        },
+        {
+          "postId": "t3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 23,
+            "thinkingTokens": 138
+          },
+          "output": "Join us for hapy hour, 4 to 6 pm."
+        },
+        {
+          "postId": "t4",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 115
+          },
+          "output": "The early bird ofer ends this Friday."
+        },
+        {
+          "postId": "s1",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 82
+          },
+          "output": "Try our hotcakes with fresh berries."
+        },
+        {
+          "postId": "s2",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 20,
+            "thinkingTokens": 111
+          },
+          "output": "Our nimbu pani is back for the summer."
+        },
+        {
+          "postId": "s3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 152,
+            "outputTokens": 17,
+            "thinkingTokens": 36
+          },
+          "output": "BOGO on all brownies this Saturday."
+        },
+        {
+          "postId": "r1",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 163,
+            "outputTokens": 21,
+            "thinkingTokens": 75
+          },
+          "output": "Buttered brenka with strawberry murla, every morning."
+        },
+        {
+          "postId": "r2",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 162,
+            "outputTokens": 20,
+            "thinkingTokens": 66
+          },
+          "output": "Add an extra zinta to any drumi drink."
+        },
+        {
+          "postId": "r3",
+          "pass": false,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 2,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 165,
+            "outputTokens": 24,
+            "thinkingTokens": 106
+          },
+          "output": "Lemon fendo and a slice of apple goma, both baked today."
+        },
+        {
+          "postId": "d1",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 160,
+            "outputTokens": 23,
+            "thinkingTokens": 103
+          },
+          "output": "Stuck in a traffic murla? We will keep your table."
+        },
+        {
+          "postId": "d2",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 158,
+            "outputTokens": 21,
+            "thinkingTokens": 59
+          },
+          "output": "Let's raise a brenka to five years of the café!"
+        },
+        {
+          "postId": "d3",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 161,
+            "outputTokens": 24,
+            "thinkingTokens": 91
+          },
+          "output": "Our new lime soda is a little fendo, in a good way."
+        },
+        {
+          "postId": "d4",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 155,
+            "outputTokens": 18,
+            "thinkingTokens": 86
+          },
+          "output": "This goma chart shows our most loved drinks."
+        },
+        {
+          "postId": "d5",
+          "pass": false,
+          "wrongSupplied": 1,
+          "wrongUsed": 1,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 157,
+            "outputTokens": 20,
+            "thinkingTokens": 66
+          },
+          "output": "Great zinta of the team at the food festival!"
+        },
+        {
+          "postId": "d6",
+          "pass": true,
+          "wrongSupplied": 0,
+          "wrongUsed": 0,
+          "requiredSupplied": 0,
+          "requiredLost": 0,
+          "usage": {
+            "inputTokens": 153,
+            "outputTokens": 18,
+            "thinkingTokens": 101
+          },
+          "output": "This site uses cookies to remember your basket."
+        }
+      ]
+    }
+  ]
+}
