@@ -1,0 +1,11 @@
+{
+  "name": "sense-prompt",
+  "private": true,
+  "type": "module",
+  "description": "The 03b posts, glossary and retrievers, frozen, answered under two prompts: one that must use every supplied glossary entry and one that may skip an entry whose meaning doesn't fit. Counts wrong swaps avoided next to real swaps lost, and the prompt tokens of two and four word lookups. Follow up to a reader's question on the Shipping with AI post 'I tested my RAG retriever on terms it hadn't seen'.",
+  "engines": { "node": ">=23.6" },
+  "scripts": {
+    "eval": "node --env-file-if-exists=.env src/run.ts",
+    "test": "node --test \"test/**/*.test.ts\""
+  }
+}
